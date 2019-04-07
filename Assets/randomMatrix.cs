@@ -8,9 +8,11 @@ public class randomMatrix : MonoBehaviour
     Vector2 gridSize;
     GameObject[][] gridOfGameObjects; 
     int gridOffset = 20;
+    int listSize = 10;
     void Start()
     {
-        gridSize = new Vector2(10, 10);
+
+        gridSize = new Vector2(listSize, listSize);
         gridOfGameObjects = new GameObject[(int)gridSize.x][];
         for (int x = 0; x < gridSize.x; x++)
         {
