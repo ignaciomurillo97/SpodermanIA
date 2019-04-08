@@ -8,6 +8,7 @@ public class GridNodes : MonoBehaviour
     public int GridSizeY;
     public float NodeSize;
     public float ObstacleProbability;
+    public bool AllowDiagonals;
 
     Node[,] NodeArray;
     public List<Node> FinalPath;
@@ -20,6 +21,10 @@ public class GridNodes : MonoBehaviour
 
     private void Start()
     {
+        InitData();
+    }
+
+    public void InitData(){
         NodeRadius = NodeSize / 2;
         fDistanceBetweenNodes = NodeRadius / 2;
         vGridWorldSize = new Vector2(GridSizeX * NodeSize, GridSizeY * NodeSize);
@@ -33,57 +38,95 @@ public class GridNodes : MonoBehaviour
         for (int x = 0; x < GridSizeX; x++){
             for (int y = 0; y < GridSizeY; y++){
                 Vector3 worldPoint = bottomLeft + Vector3.right * (x * NodeSize + NodeRadius) + Vector3.forward * (y * NodeSize + NodeRadius);//Get the world co ordinates of the bottom left of the graph
-                bool Wall = (Random.Range(0.0f, 1.0f) <= ObstacleProbability) ? false : true;
+                bool Wall = (Random.Range(0.0f, 1.0f) <= ObstacleProbability) ? true : false;
                 NodeArray[x, y] = new Node(Wall, worldPoint, x, y);//Create a new node in the array.
             }
         }
     }
 
-    //Function that gets the neighboring nodes of the given node.
+    public bool CheckBorders(int x, int y){
+        if (x >= 0 && x < GridSizeX){
+            if (y >= 0 && y < GridSizeY){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public List<Node> GetNeighboringNodes(Node a_NeighborNode)
     {
-        List<Node> NeighborList = new List<Node>();//Make a new list of all available neighbors.
-        int icheckX;//Variable to check if the XPosition is within range of the node array to avoid out of range errors.
-        int icheckY;//Variable to check if the YPosition is within range of the node array to avoid out of range errors.
+        List<Node> NeighborList = new List<Node>();
+        int icheckX, icheckY;
+        Node RightNode = null, LeftNode = null, TopNode = null, BottomNode = null;
 
         //Check the right side of the current node.
         icheckX = a_NeighborNode.iGridX + 1;
         icheckY = a_NeighborNode.iGridY;
-        if (icheckX >= 0 && icheckX < GridSizeX)//If the XPosition is in range of the array
-        {
-            if (icheckY >= 0 && icheckY < GridSizeY)//If the YPosition is in range of the array
-            {
-                NeighborList.Add(NodeArray[icheckX, icheckY]);//Add the grid to the available neighbors list
-            }
+        if (CheckBorders(icheckX, icheckY)){
+            RightNode = NodeArray[icheckX, icheckY];
+            NeighborList.Add(RightNode);
         }
+        
         //Check the Left side of the current node.
         icheckX = a_NeighborNode.iGridX - 1;
         icheckY = a_NeighborNode.iGridY;
-        if (icheckX >= 0 && icheckX < GridSizeX)//If the XPosition is in range of the array
-        {
-            if (icheckY >= 0 && icheckY < GridSizeY)//If the YPosition is in range of the array
-            {
-                NeighborList.Add(NodeArray[icheckX, icheckY]);//Add the grid to the available neighbors list
-            }
+        if (CheckBorders(icheckX, icheckY)){
+            LeftNode = NodeArray[icheckX, icheckY];
+            NeighborList.Add(LeftNode);
         }
+
         //Check the Top side of the current node.
         icheckX = a_NeighborNode.iGridX;
         icheckY = a_NeighborNode.iGridY + 1;
-        if (icheckX >= 0 && icheckX < GridSizeX)//If the XPosition is in range of the array
-        {
-            if (icheckY >= 0 && icheckY < GridSizeY)//If the YPosition is in range of the array
-            {
-                NeighborList.Add(NodeArray[icheckX, icheckY]);//Add the grid to the available neighbors list
-            }
+        if (CheckBorders(icheckX, icheckY)){
+            TopNode = NodeArray[icheckX, icheckY];
+            NeighborList.Add(TopNode);
         }
+
         //Check the Bottom side of the current node.
         icheckX = a_NeighborNode.iGridX;
         icheckY = a_NeighborNode.iGridY - 1;
-        if (icheckX >= 0 && icheckX < GridSizeX)//If the XPosition is in range of the array
-        {
-            if (icheckY >= 0 && icheckY < GridSizeY)//If the YPosition is in range of the array
-            {
-                NeighborList.Add(NodeArray[icheckX, icheckY]);//Add the grid to the available neighbors list
+        if (CheckBorders(icheckX, icheckY)){
+            BottomNode = NodeArray[icheckX, icheckY];
+            NeighborList.Add(BottomNode);
+        }
+
+        if (AllowDiagonals){
+            //Check the Top Right side of the current node.
+            icheckX = a_NeighborNode.iGridX + 1;
+            icheckY = a_NeighborNode.iGridY + 1;
+            if (CheckBorders(icheckX, icheckY)){
+                if (!(TopNode.IsObstacle && RightNode.IsObstacle)){
+                    NeighborList.Add(NodeArray[icheckX, icheckY]);
+                }
+            }
+
+            //Check the Top Left side of the current node.
+            icheckX = a_NeighborNode.iGridX - 1;
+            icheckY = a_NeighborNode.iGridY + 1;
+            if (CheckBorders(icheckX, icheckY)){
+                if (!(TopNode.IsObstacle && LeftNode.IsObstacle)){
+                    NeighborList.Add(NodeArray[icheckX, icheckY]);
+                }
+            }
+
+            //Check the Bottom Right side of the current node.
+            icheckX = a_NeighborNode.iGridX + 1;
+            icheckY = a_NeighborNode.iGridY - 1;
+            if (CheckBorders(icheckX, icheckY)){
+                if (!(BottomNode.IsObstacle && RightNode.IsObstacle)){
+                    NeighborList.Add(NodeArray[icheckX, icheckY]);
+                }
+            }
+
+            //Check the Bottom Left side of the current node.
+            icheckX = a_NeighborNode.iGridX - 1;
+            icheckY = a_NeighborNode.iGridY - 1;
+            if (CheckBorders(icheckX, icheckY)){
+                if (!(BottomNode.IsObstacle && LeftNode.IsObstacle)){
+                    NeighborList.Add(NodeArray[icheckX, icheckY]);
+                }
             }
         }
 
@@ -124,13 +167,13 @@ public class GridNodes : MonoBehaviour
         {
             foreach (Node n in NodeArray)//Loop through every node in the grid
             {
-                if (n.bIsWall)//If the current node is a wall node
+                if (n.IsObstacle)//If the current node is a wall node
                 {
-                    Gizmos.color = Color.white;//Set the color of the node
+                    Gizmos.color = Color.yellow;//Set the color of the node
                 }
                 else
                 {
-                    Gizmos.color = Color.yellow;//Set the color of the node
+                    Gizmos.color = Color.white;//Set the color of the node
                 }
 
 

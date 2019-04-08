@@ -54,7 +54,7 @@ public class AStar : MonoBehaviour {
 
             foreach (Node NeighborNode in GridReference.GetNeighboringNodes(CurrentNode))//Loop through each neighbor of the current node
             {
-                if (!NeighborNode.bIsWall || ClosedList.Contains(NeighborNode))//If the neighbor is a wall or has already been checked
+                if (NeighborNode.IsObstacle || ClosedList.Contains(NeighborNode))//If the neighbor is a wall or has already been checked
                 {
                     continue;//Skip it
                 }
