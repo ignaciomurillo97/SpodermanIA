@@ -37,9 +37,9 @@ public class GridNodes : MonoBehaviour
         Vector3 bottomLeft = transform.position - Vector3.right * vGridWorldSize.x / 2 - Vector3.forward * vGridWorldSize.y / 2;//Get the real world position of the bottom left of the grid.
         for (int x = 0; x < GridSizeX; x++){
             for (int y = 0; y < GridSizeY; y++){
-                Vector3 worldPoint = bottomLeft + Vector3.right * (x * NodeSize + NodeRadius) + Vector3.forward * (y * NodeSize + NodeRadius);//Get the world co ordinates of the bottom left of the graph
+                Vector3 worldPoint = bottomLeft + Vector3.right * (x * NodeSize + NodeRadius) + Vector3.forward * (y * NodeSize + NodeRadius);
                 bool Wall = (Random.Range(0.0f, 1.0f) <= ObstacleProbability) ? true : false;
-                NodeArray[x, y] = new Node(Wall, worldPoint, x, y);//Create a new node in the array.
+                NodeArray[x, y] = new Node(Wall, worldPoint, x, y);
             }
         }
     }
