@@ -8,15 +8,37 @@ public class GridNodes : MonoBehaviour
     public int GridSizeY;
     public float NodeSize;
     public float ObstacleProbability;
-    public bool AllowDiagonals;
-
     Node[,] NodeArray;
     public List<Node> FinalPath;
-
-
     Vector2 vGridWorldSize;
     float fDistanceBetweenNodes;
     float NodeRadius;
+    
+    //Building Assets
+    
+    GameObject[][] buildingGrid; 
+    public GameObject building1;
+    public GameObject building2;
+    public GameObject building3;
+    public GameObject building4;
+    public GameObject building5;
+    public GameObject building6;
+    public GameObject building7;
+    public GameObject building8;
+    public GameObject building9;
+    public GameObject building10;
+    public GameObject building11;
+    public GameObject building12;
+    public GameObject obstacle1;
+    float building1Scale = 0.2f;
+    
+    float obstacle1Scale = 0.006f;
+    
+    public bool AllowDiagonals;
+    
+    
+
+    
 
 
     private void Start()
@@ -24,22 +46,56 @@ public class GridNodes : MonoBehaviour
         InitData();
     }
 
-    public void InitData(){
+    public void InitData(){        
         NodeRadius = NodeSize / 2;
         fDistanceBetweenNodes = NodeRadius / 2;
-        vGridWorldSize = new Vector2(GridSizeX * NodeSize, GridSizeY * NodeSize);
+        vGridWorldSize = new Vector2(GridSizeX * NodeSize, GridSizeY * NodeSize);        
         CreateGrid();
+    }
+    void clearBuildingGrid(){
+        if (buildingGrid != null){
+            if (buildingGrid[0] != null){
+                for (int i = 0; i < buildingGrid.GetLength(0); i++){
+                    for (int j = 0; j < buildingGrid[0].GetLength(0); j++){
+                        Destroy(buildingGrid[i][j]);
+                    }            
+                }
+            }            
+        }        
     }
 
     void CreateGrid()
-    {
+    {        
+        clearBuildingGrid(); 
+        GameObject[] buildingList = {building1, building2, building3, building4, building5, building6, building7, building8, building9, building10, building11, building12};
+        GameObject[] obstacleList = {obstacle1};
+        float[] buildingScaleList = {building1Scale};
+        float[] obstacleScaleList = {obstacle1Scale};
+        buildingGrid = new GameObject[(int)GridSizeX][];
         NodeArray = new Node[GridSizeX, GridSizeY];
         Vector3 bottomLeft = transform.position - Vector3.right * vGridWorldSize.x / 2 - Vector3.forward * vGridWorldSize.y / 2;//Get the real world position of the bottom left of the grid.
         for (int x = 0; x < GridSizeX; x++){
+            buildingGrid[x] = new GameObject[(int)GridSizeY];
             for (int y = 0; y < GridSizeY; y++){
                 Vector3 worldPoint = bottomLeft + Vector3.right * (x * NodeSize + NodeRadius) + Vector3.forward * (y * NodeSize + NodeRadius);
                 bool Wall = (Random.Range(0.0f, 1.0f) <= ObstacleProbability) ? true : false;
                 NodeArray[x, y] = new Node(Wall, worldPoint, x, y);
+                if (NodeArray[x, y].IsObstacle){
+                    int index = Random.Range(0, obstacleList.GetLength(0)-1);
+                    GameObject building = Instantiate(obstacleList[index], worldPoint, Quaternion.identity);
+                    buildingGrid[x][y] = building;                    
+                    building.transform.localScale = new Vector3(obstacleScaleList[index], obstacleScaleList[index], obstacleScaleList[index]);
+                    
+                }
+                else{
+                    int index = Random.Range(0, buildingList.GetLength(0));
+                    GameObject building = Instantiate(buildingList[index], worldPoint, Quaternion.identity);
+                    buildingGrid[x][y] = building;
+                    building.transform.localScale = new Vector3(buildingScaleList[0], buildingScaleList[0], buildingScaleList[0]);                                                        
+                    if (x%2 == 0){
+                        building.transform.Rotate(0,180,0,Space.Self);
+                    }
+                }                
             }
         }
     }
@@ -182,12 +238,13 @@ public class GridNodes : MonoBehaviour
                     if (FinalPath.Contains(n))//If the current node is in the final path
                     {
                         Gizmos.color = Color.red;//Set the color of that node
+                        //pGizmos.DrawCube(n.vPosition, Vector3.one * (NodeSize - fDistanceBetweenNodes));//Draw the node at the position of the node.
                     }
 
                 }
 
 
-                Gizmos.DrawCube(n.vPosition, Vector3.one * (NodeSize - fDistanceBetweenNodes));//Draw the node at the position of the node.
+                //Gizmos.DrawCube(n.vPosition, Vector3.one * (NodeSize - fDistanceBetweenNodes));//Draw the node at the position of the node.
             }
         }
     }

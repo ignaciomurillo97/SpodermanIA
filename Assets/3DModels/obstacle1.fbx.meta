@@ -1,0 +1,1439 @@
+fileFormatVersion: 2
+guid: 4f89adb855b4a0749b4de57ecbe62b1a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: 2D_Group_Winter_Couple_001
+    100002: 2D_Woman_Nalgene Bottle_001
+    100004: 2D_Woman_Sweater_001
+    100006: 2D_Woman_Walking Away_001
+    100008: //RootNode
+    100010: Basketball_Court_001
+    100012: Box 1_001
+    100014: Box 1_002
+    100016: Box 1_003
+    100018: Box 1_004
+    100020: Box 1_005
+    100022: Box 1_006
+    100024: Box 1_007
+    100026: Box 1_008
+    100028: Box 1_009
+    100030: Box 1_010
+    100032: Box 1_011
+    100034: Box 1_012
+    100036: Box 1_013
+    100038: Box 1_014
+    100040: Box 1_015
+    100042: Box 1_016
+    100044: Box 1_017
+    100046: Box 1_018
+    100048: Box 1_019
+    100050: Box 1_020
+    100052: Box 1_021
+    100054: Box 1_022
+    100056: Box 1_023
+    100058: Box 1_024
+    100060: Box 1_025
+    100062: Box 1_026
+    100064: Box 1_027
+    100066: Box 1_028
+    100068: Box 1_029
+    100070: Box 1_030
+    100072: Box 1_031
+    100074: Box 1_032
+    100076: Box 1_033
+    100078: Box 1_034
+    100080: Box 1_035
+    100082: Box 1_036
+    100084: Box 1_037
+    100086: Box 1_038
+    100088: Box 1_039
+    100090: Box 1_040
+    100092: Box 1_041
+    100094: Box 1_042
+    100096: Box 1_043
+    100098: Box 1_044
+    100100: Box 1_045
+    100102: Box 1_046
+    100104: Box 1_047
+    100106: Box 1_048
+    100108: Box 1_049
+    100110: Box 1_050
+    100112: Box 1_051
+    100114: Box 1_052
+    100116: Box 1_053
+    100118: Box 1_054
+    100120: Box 1_055
+    100122: Box 1_056
+    100124: Box 1_057
+    100126: Box 1_058
+    100128: Box 1_059
+    100130: Box 1_060
+    100132: Box 1_061
+    100134: Box 1_062
+    100136: Box 1_063
+    100138: Box 1_064
+    100140: Box 1_065
+    100142: Box 1_066
+    100144: Box 1_067
+    100146: Box 1_068
+    100148: Box 1_069
+    100150: Box 1_070
+    100152: Box 1_071
+    100154: Box 1_072
+    100156: Box 1_073
+    100158: Box 1_074
+    100160: Box 1_075
+    100162: Box 1_076
+    100164: Box 1_077
+    100166: Box 1_078
+    100168: Box 1_079
+    100170: Bryce_001
+    100172: Chair_Half_001
+    100174: Chair_Half_002
+    100176: Chair_Half_003
+    100178: Chair_Half_004
+    100180: Chair_Half_005
+    100182: Chair_Half_006
+    100184: Chair_Half_007
+    100186: Chair_Half_008
+    100188: Chair_Strap_Half_001
+    100190: Chair_Strap_Half_002
+    100192: Chair_Strap_Half_003
+    100194: Chair_Strap_Half_004
+    100196: Chair_Strap_Half_005
+    100198: Chair_Strap_Half_006
+    100200: Chair_Strap_Half_007
+    100202: Chair_Strap_Half_008
+    100204: Chair_Strap_Half_009
+    100206: Chair_Strap_Half_010
+    100208: Chair_Strap_Half_011
+    100210: Chair_Strap_Half_012
+    100212: Chair_Strap_Half_013
+    100214: Chair_Strap_Half_014
+    100216: Chair_Strap_Half_015
+    100218: Chair_Strap_Half_016
+    100220: Chair_Strap_Half_017
+    100222: Chair_Strap_Half_018
+    100224: Chair_Strap_Half_019
+    100226: Chair_Strap_Half_020
+    100228: Chair_Strap_Half_021
+    100230: Chair_Strap_Half_022
+    100232: Chair_Strap_Half_023
+    100234: Chair_Strap_Half_024
+    100236: Chair_Strap_Half_025
+    100238: Chair_Strap_Half_026
+    100240: Chair_Strap_Half_027
+    100242: Chair_Strap_Half_028
+    100244: Chair_Strap_Half_029
+    100246: Chair_Strap_Half_030
+    100248: Chair_Strap_Half_031
+    100250: Chair_Strap_Half_032
+    100252: Chair_Strap_Half_033
+    100254: Chair_Strap_Half_034
+    100256: Chair_Strap_Half_035
+    100258: Chair_Strap_Half_036
+    100260: Chair_Strap_Half_037
+    100262: Chair_Strap_Half_038
+    100264: Chair_Strap_Half_039
+    100266: Chair_Strap_Half_040
+    100268: Chair_Strap_Half_041
+    100270: Chair_Strap_Half_042
+    100272: Chair_Strap_Half_043
+    100274: Chair_Strap_Half_044
+    100276: Chair_Strap_Half_045
+    100278: Chair_Strap_Half_046
+    100280: Chair_Strap_Half_047
+    100282: Chair_Strap_Half_048
+    100284: Chair_Strap_Half_049
+    100286: Chair_Strap_Half_050
+    100288: Chair_Strap_Half_051
+    100290: Chair_Strap_Half_052
+    100292: Chair_Strap_Half_053
+    100294: Chair_Strap_Half_054
+    100296: Chair_Strap_Half_055
+    100298: Chair_Strap_Half_056
+    100300: Chair_Strap_Half_057
+    100302: Chair_Strap_Half_058
+    100304: Chair_Strap_Half_059
+    100306: Chair_Strap_Half_060
+    100308: Chair_Strap_Half_061
+    100310: Chair_Strap_Half_062
+    100312: Chair_Strap_Half_063
+    100314: Chair_Strap_Half_064
+    100316: Chair_Strap_Half_065
+    100318: Chair_Strap_Half_066
+    100320: Chair_Strap_Half_067
+    100322: Chair_Strap_Half_068
+    100324: Chair_Strap_Half_069
+    100326: Chair_Strap_Half_070
+    100328: Chair_Strap_Half_071
+    100330: Chair_Strap_Half_072
+    100332: Chair_Strap_Half_073
+    100334: Chair_Strap_Half_074
+    100336: Chair_Strap_Half_075
+    100338: Chair_Strap_Half_076
+    100340: Chair_Strap_Half_077
+    100342: Chair_Strap_Half_078
+    100344: Chair_Strap_Half_079
+    100346: Chair_Strap_Half_080
+    100348: Chair_Strap_Half_081
+    100350: Chair_Strap_Half_082
+    100352: Chair_Strap_Half_083
+    100354: Chair_Strap_Half_084
+    100356: Chair_Strap_Half_085
+    100358: Chair_Strap_Half_086
+    100360: Chair_Strap_Half_087
+    100362: Chair_Strap_Half_088
+    100364: door knob_001
+    100366: door knob_002
+    100368: door knob_003
+    100370: Door_Garage_Double_001
+    100372: Door_Garage_Double_002
+    100374: Door_Glass_Automatic_15-0x7-8_001
+    100376: Door_Glass_Automatic_15-0x7-8_003
+    100378: Door_Glass_Automatic_15-0x7-8_005
+    100380: Door_Glass_Automatic_15-0x7-8_007
+    100382: Door_Glass_Automatic_15-0x7-8_009
+    100384: Door_Glass_Automatic_15-0x7-8_011
+    100386: Door_Glass_Commercial#1_001
+    100388: Door_Glass_Commercial_001
+    100390: Door_Glass_Commercial_002
+    100392: Group#11_001
+    100394: Group#11_002
+    100396: Group_001
+    100398: lgohg_001
+    100400: lgohg_002
+    100402: lgohg_003
+    100404: lgohg_004
+    100406: lgohg_005
+    100408: lgohg_006
+    100410: lgohg_007
+    100412: lgohg_008
+    100414: lgohg_009
+    100416: lgohg_010
+    100418: lgohg_011
+    100420: lgohg_012
+    100422: lgohg_013
+    100424: lgohg_014
+    100426: lgohg_015
+    100428: lgohg_016
+    100430: lgohg_017
+    100432: lgohg_018
+    100434: lgohg_019
+    100436: lgohg_020
+    100438: lgohg_021
+    100440: Man_001
+    100442: Man_2_001
+    100444: panel_001
+    100446: panel_002
+    100448: panel_003
+    100450: panel_004
+    100452: panel_005
+    100454: panel_006
+    100456: panel_007
+    100458: panel_008
+    100460: panel_009
+    100462: panel_010
+    100464: panel_011
+    100466: panel_012
+    100468: panel_013
+    100470: panel_014
+    100472: panel_015
+    100474: panel_016
+    100476: panel_017
+    100478: panel_018
+    100480: panel_019
+    100482: panel_020
+    100484: panel_021
+    100486: panel_022
+    100488: panel_023
+    100490: panel_024
+    100492: post with base_001
+    100494: post with base_002
+    100496: rim and backboard_001
+    100498: rim and backboard_003
+    100500: Table_Leg_001
+    100502: Table_Leg_002
+    100504: Table_Leg_003
+    100506: Table_Leg_004
+    100508: Table_Top_Quarter_001
+    100510: Table_Top_Quarter_002
+    100512: Table_Top_Quarter_003
+    100514: Table_Top_Quarter_004
+    100516: Umbrella_Handle_001
+    100518: Umbrella_Post_001
+    100520: Umbrella_Shade_001
+    400000: 2D_Group_Winter_Couple_001
+    400002: 2D_Woman_Nalgene Bottle_001
+    400004: 2D_Woman_Sweater_001
+    400006: 2D_Woman_Walking Away_001
+    400008: //RootNode
+    400010: Basketball_Court_001
+    400012: Box 1_001
+    400014: Box 1_002
+    400016: Box 1_003
+    400018: Box 1_004
+    400020: Box 1_005
+    400022: Box 1_006
+    400024: Box 1_007
+    400026: Box 1_008
+    400028: Box 1_009
+    400030: Box 1_010
+    400032: Box 1_011
+    400034: Box 1_012
+    400036: Box 1_013
+    400038: Box 1_014
+    400040: Box 1_015
+    400042: Box 1_016
+    400044: Box 1_017
+    400046: Box 1_018
+    400048: Box 1_019
+    400050: Box 1_020
+    400052: Box 1_021
+    400054: Box 1_022
+    400056: Box 1_023
+    400058: Box 1_024
+    400060: Box 1_025
+    400062: Box 1_026
+    400064: Box 1_027
+    400066: Box 1_028
+    400068: Box 1_029
+    400070: Box 1_030
+    400072: Box 1_031
+    400074: Box 1_032
+    400076: Box 1_033
+    400078: Box 1_034
+    400080: Box 1_035
+    400082: Box 1_036
+    400084: Box 1_037
+    400086: Box 1_038
+    400088: Box 1_039
+    400090: Box 1_040
+    400092: Box 1_041
+    400094: Box 1_042
+    400096: Box 1_043
+    400098: Box 1_044
+    400100: Box 1_045
+    400102: Box 1_046
+    400104: Box 1_047
+    400106: Box 1_048
+    400108: Box 1_049
+    400110: Box 1_050
+    400112: Box 1_051
+    400114: Box 1_052
+    400116: Box 1_053
+    400118: Box 1_054
+    400120: Box 1_055
+    400122: Box 1_056
+    400124: Box 1_057
+    400126: Box 1_058
+    400128: Box 1_059
+    400130: Box 1_060
+    400132: Box 1_061
+    400134: Box 1_062
+    400136: Box 1_063
+    400138: Box 1_064
+    400140: Box 1_065
+    400142: Box 1_066
+    400144: Box 1_067
+    400146: Box 1_068
+    400148: Box 1_069
+    400150: Box 1_070
+    400152: Box 1_071
+    400154: Box 1_072
+    400156: Box 1_073
+    400158: Box 1_074
+    400160: Box 1_075
+    400162: Box 1_076
+    400164: Box 1_077
+    400166: Box 1_078
+    400168: Box 1_079
+    400170: Bryce_001
+    400172: Chair_Half_001
+    400174: Chair_Half_002
+    400176: Chair_Half_003
+    400178: Chair_Half_004
+    400180: Chair_Half_005
+    400182: Chair_Half_006
+    400184: Chair_Half_007
+    400186: Chair_Half_008
+    400188: Chair_Strap_Half_001
+    400190: Chair_Strap_Half_002
+    400192: Chair_Strap_Half_003
+    400194: Chair_Strap_Half_004
+    400196: Chair_Strap_Half_005
+    400198: Chair_Strap_Half_006
+    400200: Chair_Strap_Half_007
+    400202: Chair_Strap_Half_008
+    400204: Chair_Strap_Half_009
+    400206: Chair_Strap_Half_010
+    400208: Chair_Strap_Half_011
+    400210: Chair_Strap_Half_012
+    400212: Chair_Strap_Half_013
+    400214: Chair_Strap_Half_014
+    400216: Chair_Strap_Half_015
+    400218: Chair_Strap_Half_016
+    400220: Chair_Strap_Half_017
+    400222: Chair_Strap_Half_018
+    400224: Chair_Strap_Half_019
+    400226: Chair_Strap_Half_020
+    400228: Chair_Strap_Half_021
+    400230: Chair_Strap_Half_022
+    400232: Chair_Strap_Half_023
+    400234: Chair_Strap_Half_024
+    400236: Chair_Strap_Half_025
+    400238: Chair_Strap_Half_026
+    400240: Chair_Strap_Half_027
+    400242: Chair_Strap_Half_028
+    400244: Chair_Strap_Half_029
+    400246: Chair_Strap_Half_030
+    400248: Chair_Strap_Half_031
+    400250: Chair_Strap_Half_032
+    400252: Chair_Strap_Half_033
+    400254: Chair_Strap_Half_034
+    400256: Chair_Strap_Half_035
+    400258: Chair_Strap_Half_036
+    400260: Chair_Strap_Half_037
+    400262: Chair_Strap_Half_038
+    400264: Chair_Strap_Half_039
+    400266: Chair_Strap_Half_040
+    400268: Chair_Strap_Half_041
+    400270: Chair_Strap_Half_042
+    400272: Chair_Strap_Half_043
+    400274: Chair_Strap_Half_044
+    400276: Chair_Strap_Half_045
+    400278: Chair_Strap_Half_046
+    400280: Chair_Strap_Half_047
+    400282: Chair_Strap_Half_048
+    400284: Chair_Strap_Half_049
+    400286: Chair_Strap_Half_050
+    400288: Chair_Strap_Half_051
+    400290: Chair_Strap_Half_052
+    400292: Chair_Strap_Half_053
+    400294: Chair_Strap_Half_054
+    400296: Chair_Strap_Half_055
+    400298: Chair_Strap_Half_056
+    400300: Chair_Strap_Half_057
+    400302: Chair_Strap_Half_058
+    400304: Chair_Strap_Half_059
+    400306: Chair_Strap_Half_060
+    400308: Chair_Strap_Half_061
+    400310: Chair_Strap_Half_062
+    400312: Chair_Strap_Half_063
+    400314: Chair_Strap_Half_064
+    400316: Chair_Strap_Half_065
+    400318: Chair_Strap_Half_066
+    400320: Chair_Strap_Half_067
+    400322: Chair_Strap_Half_068
+    400324: Chair_Strap_Half_069
+    400326: Chair_Strap_Half_070
+    400328: Chair_Strap_Half_071
+    400330: Chair_Strap_Half_072
+    400332: Chair_Strap_Half_073
+    400334: Chair_Strap_Half_074
+    400336: Chair_Strap_Half_075
+    400338: Chair_Strap_Half_076
+    400340: Chair_Strap_Half_077
+    400342: Chair_Strap_Half_078
+    400344: Chair_Strap_Half_079
+    400346: Chair_Strap_Half_080
+    400348: Chair_Strap_Half_081
+    400350: Chair_Strap_Half_082
+    400352: Chair_Strap_Half_083
+    400354: Chair_Strap_Half_084
+    400356: Chair_Strap_Half_085
+    400358: Chair_Strap_Half_086
+    400360: Chair_Strap_Half_087
+    400362: Chair_Strap_Half_088
+    400364: door knob_001
+    400366: door knob_002
+    400368: door knob_003
+    400370: Door_Garage_Double_001
+    400372: Door_Garage_Double_002
+    400374: Door_Glass_Automatic_15-0x7-8_001
+    400376: Door_Glass_Automatic_15-0x7-8_003
+    400378: Door_Glass_Automatic_15-0x7-8_005
+    400380: Door_Glass_Automatic_15-0x7-8_007
+    400382: Door_Glass_Automatic_15-0x7-8_009
+    400384: Door_Glass_Automatic_15-0x7-8_011
+    400386: Door_Glass_Commercial#1_001
+    400388: Door_Glass_Commercial_001
+    400390: Door_Glass_Commercial_002
+    400392: Group#11_001
+    400394: Group#11_002
+    400396: Group_001
+    400398: lgohg_001
+    400400: lgohg_002
+    400402: lgohg_003
+    400404: lgohg_004
+    400406: lgohg_005
+    400408: lgohg_006
+    400410: lgohg_007
+    400412: lgohg_008
+    400414: lgohg_009
+    400416: lgohg_010
+    400418: lgohg_011
+    400420: lgohg_012
+    400422: lgohg_013
+    400424: lgohg_014
+    400426: lgohg_015
+    400428: lgohg_016
+    400430: lgohg_017
+    400432: lgohg_018
+    400434: lgohg_019
+    400436: lgohg_020
+    400438: lgohg_021
+    400440: Man_001
+    400442: Man_2_001
+    400444: panel_001
+    400446: panel_002
+    400448: panel_003
+    400450: panel_004
+    400452: panel_005
+    400454: panel_006
+    400456: panel_007
+    400458: panel_008
+    400460: panel_009
+    400462: panel_010
+    400464: panel_011
+    400466: panel_012
+    400468: panel_013
+    400470: panel_014
+    400472: panel_015
+    400474: panel_016
+    400476: panel_017
+    400478: panel_018
+    400480: panel_019
+    400482: panel_020
+    400484: panel_021
+    400486: panel_022
+    400488: panel_023
+    400490: panel_024
+    400492: post with base_001
+    400494: post with base_002
+    400496: rim and backboard_001
+    400498: rim and backboard_003
+    400500: Table_Leg_001
+    400502: Table_Leg_002
+    400504: Table_Leg_003
+    400506: Table_Leg_004
+    400508: Table_Top_Quarter_001
+    400510: Table_Top_Quarter_002
+    400512: Table_Top_Quarter_003
+    400514: Table_Top_Quarter_004
+    400516: Umbrella_Handle_001
+    400518: Umbrella_Post_001
+    400520: Umbrella_Shade_001
+    2100000: _White_
+    2100002: Concrete_Aggregate_Gray
+    2100004: _Orange_
+    2100006: _DimGray_
+    2100008: _FloralWhite_
+    2100010: _DarkGray_1
+    2100012: _CoolGray5_
+    2100014: Transparent_Blue
+    2100016: Blue_Strap
+    2100018: _Black_
+    2100020: _DarkGoldenrod_
+    2100022: _Charcoal_
+    2100024: _Beige_2
+    2100026: jean blue
+    2100028: _Olive_
+    2100030: _Gray8_
+    2100032: _Dark Olive_1
+    2100034: _CoolGray8_1
+    2100036: _Gray5_
+    2100038: _Beige_3
+    2100040: _Burnt Sienna_
+    2100042: _WarmGray5_
+    2100044: _Dark Brown_
+    2100046: _Chipboard_1
+    2100048: _WarmGray8_
+    2100050: _Gray3_
+    2100052: _CoolGray6_1
+    2100054: _CoolGray8_
+    2100056: _WarmGray6_
+    2100058: _GhostWhite_
+    2100060: _Brown_1
+    2100062: _Gray_
+    2100064: _DarkGray_
+    2100066: _Plum_
+    2100068: _Beige_1
+    2100070: _WhiteSmoke_
+    2100072: _LightSlateGray_
+    2100074: _Gray Glass_
+    2100076: Metal_Rough
+    2100078: Translucent_Glass_Block_Light
+    2100080: Translucent_Glass_Corrugated
+    2100082: _Gray6_
+    2100084: _Brown_
+    2100086: _Redwood_
+    2100088: Stone_Granite_BluePearl
+    2100090: Translucent_Glass_Block_Dark
+    2300000: 2D_Group_Winter_Couple_001
+    2300002: 2D_Woman_Nalgene Bottle_001
+    2300004: 2D_Woman_Sweater_001
+    2300006: 2D_Woman_Walking Away_001
+    2300008: Basketball_Court_001
+    2300010: Box 1_001
+    2300012: Box 1_002
+    2300014: Box 1_003
+    2300016: Box 1_004
+    2300018: Box 1_005
+    2300020: Box 1_006
+    2300022: Box 1_007
+    2300024: Box 1_008
+    2300026: Box 1_009
+    2300028: Box 1_010
+    2300030: Box 1_011
+    2300032: Box 1_012
+    2300034: Box 1_013
+    2300036: Box 1_014
+    2300038: Box 1_015
+    2300040: Box 1_016
+    2300042: Box 1_017
+    2300044: Box 1_018
+    2300046: Box 1_019
+    2300048: Box 1_020
+    2300050: Box 1_021
+    2300052: Box 1_022
+    2300054: Box 1_023
+    2300056: Box 1_024
+    2300058: Box 1_025
+    2300060: Box 1_026
+    2300062: Box 1_027
+    2300064: Box 1_028
+    2300066: Box 1_029
+    2300068: Box 1_030
+    2300070: Box 1_031
+    2300072: Box 1_032
+    2300074: Box 1_033
+    2300076: Box 1_034
+    2300078: Box 1_035
+    2300080: Box 1_036
+    2300082: Box 1_037
+    2300084: Box 1_038
+    2300086: Box 1_039
+    2300088: Box 1_040
+    2300090: Box 1_041
+    2300092: Box 1_042
+    2300094: Box 1_043
+    2300096: Box 1_044
+    2300098: Box 1_045
+    2300100: Box 1_046
+    2300102: Box 1_047
+    2300104: Box 1_048
+    2300106: Box 1_049
+    2300108: Box 1_050
+    2300110: Box 1_051
+    2300112: Box 1_052
+    2300114: Box 1_053
+    2300116: Box 1_054
+    2300118: Box 1_055
+    2300120: Box 1_056
+    2300122: Box 1_057
+    2300124: Box 1_058
+    2300126: Box 1_059
+    2300128: Box 1_060
+    2300130: Box 1_061
+    2300132: Box 1_062
+    2300134: Box 1_063
+    2300136: Box 1_064
+    2300138: Box 1_065
+    2300140: Box 1_066
+    2300142: Box 1_067
+    2300144: Box 1_068
+    2300146: Box 1_069
+    2300148: Box 1_070
+    2300150: Box 1_071
+    2300152: Box 1_072
+    2300154: Box 1_073
+    2300156: Box 1_074
+    2300158: Box 1_075
+    2300160: Box 1_076
+    2300162: Box 1_077
+    2300164: Box 1_078
+    2300166: Box 1_079
+    2300168: Bryce_001
+    2300170: Chair_Half_001
+    2300172: Chair_Half_002
+    2300174: Chair_Half_003
+    2300176: Chair_Half_004
+    2300178: Chair_Half_005
+    2300180: Chair_Half_006
+    2300182: Chair_Half_007
+    2300184: Chair_Half_008
+    2300186: Chair_Strap_Half_001
+    2300188: Chair_Strap_Half_002
+    2300190: Chair_Strap_Half_003
+    2300192: Chair_Strap_Half_004
+    2300194: Chair_Strap_Half_005
+    2300196: Chair_Strap_Half_006
+    2300198: Chair_Strap_Half_007
+    2300200: Chair_Strap_Half_008
+    2300202: Chair_Strap_Half_009
+    2300204: Chair_Strap_Half_010
+    2300206: Chair_Strap_Half_011
+    2300208: Chair_Strap_Half_012
+    2300210: Chair_Strap_Half_013
+    2300212: Chair_Strap_Half_014
+    2300214: Chair_Strap_Half_015
+    2300216: Chair_Strap_Half_016
+    2300218: Chair_Strap_Half_017
+    2300220: Chair_Strap_Half_018
+    2300222: Chair_Strap_Half_019
+    2300224: Chair_Strap_Half_020
+    2300226: Chair_Strap_Half_021
+    2300228: Chair_Strap_Half_022
+    2300230: Chair_Strap_Half_023
+    2300232: Chair_Strap_Half_024
+    2300234: Chair_Strap_Half_025
+    2300236: Chair_Strap_Half_026
+    2300238: Chair_Strap_Half_027
+    2300240: Chair_Strap_Half_028
+    2300242: Chair_Strap_Half_029
+    2300244: Chair_Strap_Half_030
+    2300246: Chair_Strap_Half_031
+    2300248: Chair_Strap_Half_032
+    2300250: Chair_Strap_Half_033
+    2300252: Chair_Strap_Half_034
+    2300254: Chair_Strap_Half_035
+    2300256: Chair_Strap_Half_036
+    2300258: Chair_Strap_Half_037
+    2300260: Chair_Strap_Half_038
+    2300262: Chair_Strap_Half_039
+    2300264: Chair_Strap_Half_040
+    2300266: Chair_Strap_Half_041
+    2300268: Chair_Strap_Half_042
+    2300270: Chair_Strap_Half_043
+    2300272: Chair_Strap_Half_044
+    2300274: Chair_Strap_Half_045
+    2300276: Chair_Strap_Half_046
+    2300278: Chair_Strap_Half_047
+    2300280: Chair_Strap_Half_048
+    2300282: Chair_Strap_Half_049
+    2300284: Chair_Strap_Half_050
+    2300286: Chair_Strap_Half_051
+    2300288: Chair_Strap_Half_052
+    2300290: Chair_Strap_Half_053
+    2300292: Chair_Strap_Half_054
+    2300294: Chair_Strap_Half_055
+    2300296: Chair_Strap_Half_056
+    2300298: Chair_Strap_Half_057
+    2300300: Chair_Strap_Half_058
+    2300302: Chair_Strap_Half_059
+    2300304: Chair_Strap_Half_060
+    2300306: Chair_Strap_Half_061
+    2300308: Chair_Strap_Half_062
+    2300310: Chair_Strap_Half_063
+    2300312: Chair_Strap_Half_064
+    2300314: Chair_Strap_Half_065
+    2300316: Chair_Strap_Half_066
+    2300318: Chair_Strap_Half_067
+    2300320: Chair_Strap_Half_068
+    2300322: Chair_Strap_Half_069
+    2300324: Chair_Strap_Half_070
+    2300326: Chair_Strap_Half_071
+    2300328: Chair_Strap_Half_072
+    2300330: Chair_Strap_Half_073
+    2300332: Chair_Strap_Half_074
+    2300334: Chair_Strap_Half_075
+    2300336: Chair_Strap_Half_076
+    2300338: Chair_Strap_Half_077
+    2300340: Chair_Strap_Half_078
+    2300342: Chair_Strap_Half_079
+    2300344: Chair_Strap_Half_080
+    2300346: Chair_Strap_Half_081
+    2300348: Chair_Strap_Half_082
+    2300350: Chair_Strap_Half_083
+    2300352: Chair_Strap_Half_084
+    2300354: Chair_Strap_Half_085
+    2300356: Chair_Strap_Half_086
+    2300358: Chair_Strap_Half_087
+    2300360: Chair_Strap_Half_088
+    2300362: door knob_001
+    2300364: door knob_002
+    2300366: door knob_003
+    2300368: Door_Garage_Double_001
+    2300370: Door_Garage_Double_002
+    2300372: Door_Glass_Automatic_15-0x7-8_001
+    2300374: Door_Glass_Automatic_15-0x7-8_003
+    2300376: Door_Glass_Automatic_15-0x7-8_005
+    2300378: Door_Glass_Automatic_15-0x7-8_007
+    2300380: Door_Glass_Automatic_15-0x7-8_009
+    2300382: Door_Glass_Automatic_15-0x7-8_011
+    2300384: Door_Glass_Commercial#1_001
+    2300386: Door_Glass_Commercial_001
+    2300388: Door_Glass_Commercial_002
+    2300390: Group#11_001
+    2300392: Group#11_002
+    2300394: Group_001
+    2300396: lgohg_001
+    2300398: lgohg_002
+    2300400: lgohg_003
+    2300402: lgohg_004
+    2300404: lgohg_005
+    2300406: lgohg_006
+    2300408: lgohg_007
+    2300410: lgohg_008
+    2300412: lgohg_009
+    2300414: lgohg_010
+    2300416: lgohg_011
+    2300418: lgohg_012
+    2300420: lgohg_013
+    2300422: lgohg_014
+    2300424: lgohg_015
+    2300426: lgohg_016
+    2300428: lgohg_017
+    2300430: lgohg_018
+    2300432: lgohg_019
+    2300434: lgohg_020
+    2300436: lgohg_021
+    2300438: Man_001
+    2300440: Man_2_001
+    2300442: panel_001
+    2300444: panel_002
+    2300446: panel_003
+    2300448: panel_004
+    2300450: panel_005
+    2300452: panel_006
+    2300454: panel_007
+    2300456: panel_008
+    2300458: panel_009
+    2300460: panel_010
+    2300462: panel_011
+    2300464: panel_012
+    2300466: panel_013
+    2300468: panel_014
+    2300470: panel_015
+    2300472: panel_016
+    2300474: panel_017
+    2300476: panel_018
+    2300478: panel_019
+    2300480: panel_020
+    2300482: panel_021
+    2300484: panel_022
+    2300486: panel_023
+    2300488: panel_024
+    2300490: post with base_001
+    2300492: post with base_002
+    2300494: rim and backboard_001
+    2300496: rim and backboard_003
+    2300498: Table_Leg_001
+    2300500: Table_Leg_002
+    2300502: Table_Leg_003
+    2300504: Table_Leg_004
+    2300506: Table_Top_Quarter_001
+    2300508: Table_Top_Quarter_002
+    2300510: Table_Top_Quarter_003
+    2300512: Table_Top_Quarter_004
+    2300514: Umbrella_Handle_001
+    2300516: Umbrella_Post_001
+    2300518: Umbrella_Shade_001
+    3300000: 2D_Group_Winter_Couple_001
+    3300002: 2D_Woman_Nalgene Bottle_001
+    3300004: 2D_Woman_Sweater_001
+    3300006: 2D_Woman_Walking Away_001
+    3300008: Basketball_Court_001
+    3300010: Box 1_001
+    3300012: Box 1_002
+    3300014: Box 1_003
+    3300016: Box 1_004
+    3300018: Box 1_005
+    3300020: Box 1_006
+    3300022: Box 1_007
+    3300024: Box 1_008
+    3300026: Box 1_009
+    3300028: Box 1_010
+    3300030: Box 1_011
+    3300032: Box 1_012
+    3300034: Box 1_013
+    3300036: Box 1_014
+    3300038: Box 1_015
+    3300040: Box 1_016
+    3300042: Box 1_017
+    3300044: Box 1_018
+    3300046: Box 1_019
+    3300048: Box 1_020
+    3300050: Box 1_021
+    3300052: Box 1_022
+    3300054: Box 1_023
+    3300056: Box 1_024
+    3300058: Box 1_025
+    3300060: Box 1_026
+    3300062: Box 1_027
+    3300064: Box 1_028
+    3300066: Box 1_029
+    3300068: Box 1_030
+    3300070: Box 1_031
+    3300072: Box 1_032
+    3300074: Box 1_033
+    3300076: Box 1_034
+    3300078: Box 1_035
+    3300080: Box 1_036
+    3300082: Box 1_037
+    3300084: Box 1_038
+    3300086: Box 1_039
+    3300088: Box 1_040
+    3300090: Box 1_041
+    3300092: Box 1_042
+    3300094: Box 1_043
+    3300096: Box 1_044
+    3300098: Box 1_045
+    3300100: Box 1_046
+    3300102: Box 1_047
+    3300104: Box 1_048
+    3300106: Box 1_049
+    3300108: Box 1_050
+    3300110: Box 1_051
+    3300112: Box 1_052
+    3300114: Box 1_053
+    3300116: Box 1_054
+    3300118: Box 1_055
+    3300120: Box 1_056
+    3300122: Box 1_057
+    3300124: Box 1_058
+    3300126: Box 1_059
+    3300128: Box 1_060
+    3300130: Box 1_061
+    3300132: Box 1_062
+    3300134: Box 1_063
+    3300136: Box 1_064
+    3300138: Box 1_065
+    3300140: Box 1_066
+    3300142: Box 1_067
+    3300144: Box 1_068
+    3300146: Box 1_069
+    3300148: Box 1_070
+    3300150: Box 1_071
+    3300152: Box 1_072
+    3300154: Box 1_073
+    3300156: Box 1_074
+    3300158: Box 1_075
+    3300160: Box 1_076
+    3300162: Box 1_077
+    3300164: Box 1_078
+    3300166: Box 1_079
+    3300168: Bryce_001
+    3300170: Chair_Half_001
+    3300172: Chair_Half_002
+    3300174: Chair_Half_003
+    3300176: Chair_Half_004
+    3300178: Chair_Half_005
+    3300180: Chair_Half_006
+    3300182: Chair_Half_007
+    3300184: Chair_Half_008
+    3300186: Chair_Strap_Half_001
+    3300188: Chair_Strap_Half_002
+    3300190: Chair_Strap_Half_003
+    3300192: Chair_Strap_Half_004
+    3300194: Chair_Strap_Half_005
+    3300196: Chair_Strap_Half_006
+    3300198: Chair_Strap_Half_007
+    3300200: Chair_Strap_Half_008
+    3300202: Chair_Strap_Half_009
+    3300204: Chair_Strap_Half_010
+    3300206: Chair_Strap_Half_011
+    3300208: Chair_Strap_Half_012
+    3300210: Chair_Strap_Half_013
+    3300212: Chair_Strap_Half_014
+    3300214: Chair_Strap_Half_015
+    3300216: Chair_Strap_Half_016
+    3300218: Chair_Strap_Half_017
+    3300220: Chair_Strap_Half_018
+    3300222: Chair_Strap_Half_019
+    3300224: Chair_Strap_Half_020
+    3300226: Chair_Strap_Half_021
+    3300228: Chair_Strap_Half_022
+    3300230: Chair_Strap_Half_023
+    3300232: Chair_Strap_Half_024
+    3300234: Chair_Strap_Half_025
+    3300236: Chair_Strap_Half_026
+    3300238: Chair_Strap_Half_027
+    3300240: Chair_Strap_Half_028
+    3300242: Chair_Strap_Half_029
+    3300244: Chair_Strap_Half_030
+    3300246: Chair_Strap_Half_031
+    3300248: Chair_Strap_Half_032
+    3300250: Chair_Strap_Half_033
+    3300252: Chair_Strap_Half_034
+    3300254: Chair_Strap_Half_035
+    3300256: Chair_Strap_Half_036
+    3300258: Chair_Strap_Half_037
+    3300260: Chair_Strap_Half_038
+    3300262: Chair_Strap_Half_039
+    3300264: Chair_Strap_Half_040
+    3300266: Chair_Strap_Half_041
+    3300268: Chair_Strap_Half_042
+    3300270: Chair_Strap_Half_043
+    3300272: Chair_Strap_Half_044
+    3300274: Chair_Strap_Half_045
+    3300276: Chair_Strap_Half_046
+    3300278: Chair_Strap_Half_047
+    3300280: Chair_Strap_Half_048
+    3300282: Chair_Strap_Half_049
+    3300284: Chair_Strap_Half_050
+    3300286: Chair_Strap_Half_051
+    3300288: Chair_Strap_Half_052
+    3300290: Chair_Strap_Half_053
+    3300292: Chair_Strap_Half_054
+    3300294: Chair_Strap_Half_055
+    3300296: Chair_Strap_Half_056
+    3300298: Chair_Strap_Half_057
+    3300300: Chair_Strap_Half_058
+    3300302: Chair_Strap_Half_059
+    3300304: Chair_Strap_Half_060
+    3300306: Chair_Strap_Half_061
+    3300308: Chair_Strap_Half_062
+    3300310: Chair_Strap_Half_063
+    3300312: Chair_Strap_Half_064
+    3300314: Chair_Strap_Half_065
+    3300316: Chair_Strap_Half_066
+    3300318: Chair_Strap_Half_067
+    3300320: Chair_Strap_Half_068
+    3300322: Chair_Strap_Half_069
+    3300324: Chair_Strap_Half_070
+    3300326: Chair_Strap_Half_071
+    3300328: Chair_Strap_Half_072
+    3300330: Chair_Strap_Half_073
+    3300332: Chair_Strap_Half_074
+    3300334: Chair_Strap_Half_075
+    3300336: Chair_Strap_Half_076
+    3300338: Chair_Strap_Half_077
+    3300340: Chair_Strap_Half_078
+    3300342: Chair_Strap_Half_079
+    3300344: Chair_Strap_Half_080
+    3300346: Chair_Strap_Half_081
+    3300348: Chair_Strap_Half_082
+    3300350: Chair_Strap_Half_083
+    3300352: Chair_Strap_Half_084
+    3300354: Chair_Strap_Half_085
+    3300356: Chair_Strap_Half_086
+    3300358: Chair_Strap_Half_087
+    3300360: Chair_Strap_Half_088
+    3300362: door knob_001
+    3300364: door knob_002
+    3300366: door knob_003
+    3300368: Door_Garage_Double_001
+    3300370: Door_Garage_Double_002
+    3300372: Door_Glass_Automatic_15-0x7-8_001
+    3300374: Door_Glass_Automatic_15-0x7-8_003
+    3300376: Door_Glass_Automatic_15-0x7-8_005
+    3300378: Door_Glass_Automatic_15-0x7-8_007
+    3300380: Door_Glass_Automatic_15-0x7-8_009
+    3300382: Door_Glass_Automatic_15-0x7-8_011
+    3300384: Door_Glass_Commercial#1_001
+    3300386: Door_Glass_Commercial_001
+    3300388: Door_Glass_Commercial_002
+    3300390: Group#11_001
+    3300392: Group#11_002
+    3300394: Group_001
+    3300396: lgohg_001
+    3300398: lgohg_002
+    3300400: lgohg_003
+    3300402: lgohg_004
+    3300404: lgohg_005
+    3300406: lgohg_006
+    3300408: lgohg_007
+    3300410: lgohg_008
+    3300412: lgohg_009
+    3300414: lgohg_010
+    3300416: lgohg_011
+    3300418: lgohg_012
+    3300420: lgohg_013
+    3300422: lgohg_014
+    3300424: lgohg_015
+    3300426: lgohg_016
+    3300428: lgohg_017
+    3300430: lgohg_018
+    3300432: lgohg_019
+    3300434: lgohg_020
+    3300436: lgohg_021
+    3300438: Man_001
+    3300440: Man_2_001
+    3300442: panel_001
+    3300444: panel_002
+    3300446: panel_003
+    3300448: panel_004
+    3300450: panel_005
+    3300452: panel_006
+    3300454: panel_007
+    3300456: panel_008
+    3300458: panel_009
+    3300460: panel_010
+    3300462: panel_011
+    3300464: panel_012
+    3300466: panel_013
+    3300468: panel_014
+    3300470: panel_015
+    3300472: panel_016
+    3300474: panel_017
+    3300476: panel_018
+    3300478: panel_019
+    3300480: panel_020
+    3300482: panel_021
+    3300484: panel_022
+    3300486: panel_023
+    3300488: panel_024
+    3300490: post with base_001
+    3300492: post with base_002
+    3300494: rim and backboard_001
+    3300496: rim and backboard_003
+    3300498: Table_Leg_001
+    3300500: Table_Leg_002
+    3300502: Table_Leg_003
+    3300504: Table_Leg_004
+    3300506: Table_Top_Quarter_001
+    3300508: Table_Top_Quarter_002
+    3300510: Table_Top_Quarter_003
+    3300512: Table_Top_Quarter_004
+    3300514: Umbrella_Handle_001
+    3300516: Umbrella_Post_001
+    3300518: Umbrella_Shade_001
+    4300000: Group#11_002
+    4300002: Group#11_001
+    4300004: rim and backboard_003
+    4300006: post with base_002
+    4300008: rim and backboard_001
+    4300010: post with base_001
+    4300012: Basketball_Court_001
+    4300014: Table_Leg_004
+    4300016: Table_Top_Quarter_004
+    4300018: Table_Leg_003
+    4300020: Table_Leg_002
+    4300022: Table_Leg_001
+    4300024: Table_Top_Quarter_003
+    4300026: Table_Top_Quarter_002
+    4300028: Table_Top_Quarter_001
+    4300030: Umbrella_Handle_001
+    4300032: Umbrella_Post_001
+    4300034: Umbrella_Shade_001
+    4300036: Chair_Strap_Half_088
+    4300038: Chair_Strap_Half_087
+    4300040: Chair_Strap_Half_086
+    4300042: Chair_Strap_Half_085
+    4300044: Chair_Strap_Half_084
+    4300046: Chair_Strap_Half_083
+    4300048: Chair_Strap_Half_082
+    4300050: Chair_Strap_Half_081
+    4300052: Chair_Strap_Half_080
+    4300054: Chair_Strap_Half_079
+    4300056: Chair_Strap_Half_078
+    4300058: Chair_Half_008
+    4300060: Chair_Strap_Half_077
+    4300062: Chair_Strap_Half_076
+    4300064: Chair_Strap_Half_075
+    4300066: Chair_Strap_Half_074
+    4300068: Chair_Strap_Half_073
+    4300070: Chair_Strap_Half_072
+    4300072: Chair_Strap_Half_071
+    4300074: Chair_Strap_Half_070
+    4300076: Chair_Strap_Half_069
+    4300078: Chair_Strap_Half_068
+    4300080: Chair_Strap_Half_067
+    4300082: Chair_Half_007
+    4300084: Chair_Strap_Half_066
+    4300086: Chair_Strap_Half_065
+    4300088: Chair_Strap_Half_064
+    4300090: Chair_Strap_Half_063
+    4300092: Chair_Strap_Half_062
+    4300094: Chair_Strap_Half_061
+    4300096: Chair_Strap_Half_060
+    4300098: Chair_Strap_Half_059
+    4300100: Chair_Strap_Half_058
+    4300102: Chair_Strap_Half_057
+    4300104: Chair_Strap_Half_056
+    4300106: Chair_Half_006
+    4300108: Chair_Strap_Half_055
+    4300110: Chair_Strap_Half_054
+    4300112: Chair_Strap_Half_053
+    4300114: Chair_Strap_Half_052
+    4300116: Chair_Strap_Half_051
+    4300118: Chair_Strap_Half_050
+    4300120: Chair_Strap_Half_049
+    4300122: Chair_Strap_Half_048
+    4300124: Chair_Strap_Half_047
+    4300126: Chair_Strap_Half_046
+    4300128: Chair_Strap_Half_045
+    4300130: Chair_Half_005
+    4300132: Chair_Strap_Half_044
+    4300134: Chair_Strap_Half_043
+    4300136: Chair_Strap_Half_042
+    4300138: Chair_Strap_Half_041
+    4300140: Chair_Strap_Half_040
+    4300142: Chair_Strap_Half_039
+    4300144: Chair_Strap_Half_038
+    4300146: Chair_Strap_Half_037
+    4300148: Chair_Strap_Half_036
+    4300150: Chair_Strap_Half_035
+    4300152: Chair_Strap_Half_034
+    4300154: Chair_Half_004
+    4300156: Chair_Strap_Half_033
+    4300158: Chair_Strap_Half_032
+    4300160: Chair_Strap_Half_031
+    4300162: Chair_Strap_Half_030
+    4300164: Chair_Strap_Half_029
+    4300166: Chair_Strap_Half_028
+    4300168: Chair_Strap_Half_027
+    4300170: Chair_Strap_Half_026
+    4300172: Chair_Strap_Half_025
+    4300174: Chair_Strap_Half_024
+    4300176: Chair_Strap_Half_023
+    4300178: Chair_Half_003
+    4300180: Chair_Strap_Half_022
+    4300182: Chair_Strap_Half_021
+    4300184: Chair_Strap_Half_020
+    4300186: Chair_Strap_Half_019
+    4300188: Chair_Strap_Half_018
+    4300190: Chair_Strap_Half_017
+    4300192: Chair_Strap_Half_016
+    4300194: Chair_Strap_Half_015
+    4300196: Chair_Strap_Half_014
+    4300198: Chair_Strap_Half_013
+    4300200: Chair_Strap_Half_012
+    4300202: Chair_Half_002
+    4300204: Chair_Strap_Half_011
+    4300206: Chair_Strap_Half_010
+    4300208: Chair_Strap_Half_009
+    4300210: Chair_Strap_Half_008
+    4300212: Chair_Strap_Half_007
+    4300214: Chair_Strap_Half_006
+    4300216: Chair_Strap_Half_005
+    4300218: Chair_Strap_Half_004
+    4300220: Chair_Strap_Half_003
+    4300222: Chair_Strap_Half_002
+    4300224: Chair_Strap_Half_001
+    4300226: Chair_Half_001
+    4300228: 2D_Group_Winter_Couple_001
+    4300230: Man_2_001
+    4300232: Man_001
+    4300234: 2D_Woman_Sweater_001
+    4300236: 2D_Woman_Walking Away_001
+    4300238: 2D_Woman_Nalgene Bottle_001
+    4300240: door knob_003
+    4300242: Door_Glass_Commercial#1_001
+    4300244: Door_Garage_Double_002
+    4300246: Door_Garage_Double_001
+    4300248: panel_024
+    4300250: panel_023
+    4300252: panel_022
+    4300254: panel_021
+    4300256: Door_Glass_Automatic_15-0x7-8_011
+    4300258: panel_020
+    4300260: panel_019
+    4300262: panel_018
+    4300264: panel_017
+    4300266: Door_Glass_Automatic_15-0x7-8_009
+    4300268: panel_016
+    4300270: panel_015
+    4300272: panel_014
+    4300274: panel_013
+    4300276: Door_Glass_Automatic_15-0x7-8_007
+    4300278: panel_012
+    4300280: panel_011
+    4300282: panel_010
+    4300284: panel_009
+    4300286: Door_Glass_Automatic_15-0x7-8_005
+    4300288: panel_008
+    4300290: panel_007
+    4300292: panel_006
+    4300294: panel_005
+    4300296: Door_Glass_Automatic_15-0x7-8_003
+    4300298: panel_004
+    4300300: panel_003
+    4300302: panel_002
+    4300304: panel_001
+    4300306: Door_Glass_Automatic_15-0x7-8_001
+    4300308: door knob_002
+    4300310: Door_Glass_Commercial_002
+    4300312: door knob_001
+    4300314: Door_Glass_Commercial_001
+    4300316: lgohg_021
+    4300318: lgohg_020
+    4300320: lgohg_019
+    4300322: lgohg_018
+    4300324: lgohg_017
+    4300326: lgohg_016
+    4300328: lgohg_015
+    4300330: lgohg_014
+    4300332: lgohg_013
+    4300334: lgohg_012
+    4300336: lgohg_011
+    4300338: lgohg_010
+    4300340: lgohg_009
+    4300342: lgohg_008
+    4300344: lgohg_007
+    4300346: lgohg_006
+    4300348: lgohg_005
+    4300350: lgohg_004
+    4300352: lgohg_003
+    4300354: lgohg_002
+    4300356: lgohg_001
+    4300358: Box 1_079
+    4300360: Box 1_078
+    4300362: Box 1_077
+    4300364: Box 1_076
+    4300366: Box 1_075
+    4300368: Box 1_074
+    4300370: Box 1_073
+    4300372: Box 1_072
+    4300374: Box 1_071
+    4300376: Box 1_070
+    4300378: Box 1_069
+    4300380: Box 1_068
+    4300382: Box 1_067
+    4300384: Box 1_066
+    4300386: Box 1_065
+    4300388: Box 1_064
+    4300390: Box 1_063
+    4300392: Box 1_062
+    4300394: Box 1_061
+    4300396: Box 1_060
+    4300398: Box 1_059
+    4300400: Box 1_058
+    4300402: Box 1_057
+    4300404: Box 1_056
+    4300406: Box 1_055
+    4300408: Box 1_054
+    4300410: Box 1_053
+    4300412: Box 1_052
+    4300414: Box 1_051
+    4300416: Box 1_050
+    4300418: Box 1_049
+    4300420: Box 1_048
+    4300422: Box 1_047
+    4300424: Box 1_046
+    4300426: Box 1_045
+    4300428: Box 1_044
+    4300430: Box 1_043
+    4300432: Box 1_042
+    4300434: Box 1_041
+    4300436: Box 1_040
+    4300438: Box 1_039
+    4300440: Box 1_038
+    4300442: Box 1_037
+    4300444: Box 1_036
+    4300446: Box 1_035
+    4300448: Box 1_034
+    4300450: Box 1_033
+    4300452: Box 1_032
+    4300454: Box 1_031
+    4300456: Box 1_030
+    4300458: Box 1_029
+    4300460: Box 1_028
+    4300462: Box 1_027
+    4300464: Box 1_026
+    4300466: Box 1_025
+    4300468: Box 1_024
+    4300470: Box 1_023
+    4300472: Box 1_022
+    4300474: Box 1_021
+    4300476: Box 1_020
+    4300478: Box 1_019
+    4300480: Box 1_018
+    4300482: Box 1_017
+    4300484: Box 1_016
+    4300486: Box 1_015
+    4300488: Bryce_001
+    4300490: Box 1_014
+    4300492: Box 1_013
+    4300494: Box 1_012
+    4300496: Box 1_011
+    4300498: Box 1_010
+    4300500: Box 1_009
+    4300502: Box 1_008
+    4300504: Box 1_007
+    4300506: Box 1_006
+    4300508: Box 1_005
+    4300510: Box 1_004
+    4300512: Box 1_003
+    4300514: Box 1_002
+    4300516: Box 1_001
+    4300518: Group_001
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
