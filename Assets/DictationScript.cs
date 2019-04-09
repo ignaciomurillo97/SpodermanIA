@@ -48,8 +48,6 @@ public class DictationScript : MonoBehaviour
     {
         Grid = GetComponent<GridNodes>();
         algorithm = GetComponent<AStar>();
-
-        algorithm.ExecuteAlgorithm();
     }
 
     // Use this for initialization
