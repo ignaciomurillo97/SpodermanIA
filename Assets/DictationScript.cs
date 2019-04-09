@@ -48,8 +48,6 @@ public class DictationScript : MonoBehaviour
     {
         Grid = GetComponent<GridNodes>();
         algorithm = GetComponent<AStar>();
-
-        algorithm.ExecuteAlgorithm();
     }
 
     // Use this for initialization
@@ -71,7 +69,7 @@ public class DictationScript : MonoBehaviour
         actions.Add("Play", Play);
         actions.Add("Print", Print);
 
-        keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray()); ;
+        keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
 
@@ -93,10 +91,10 @@ public class DictationScript : MonoBehaviour
     private void Play()
     {
         EditorApplication.Beep();
+        UnityEngine.Debug.Log("Play");
         algorithm.ExecuteAlgorithm();
         Grid.InitData();
-
-
+        voice.Speak("Executing algorithm", SpeechVoiceSpeakFlags.SVSFlagsAsync);
     }
 
     private void MatrixX()
@@ -105,7 +103,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         keywordRecognizer.Stop();
         PhraseRecognitionSystem.Shutdown();
-        voice.Speak("Please enter grid width value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        voice.Speak("Please enter the grid width value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
         dictationRecognizer.Stop();
         //recognizedWordValue = 0;
@@ -117,7 +115,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         keywordRecognizer.Stop();
         PhraseRecognitionSystem.Shutdown();
-        voice.Speak("Please enter grid lenght value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        voice.Speak("Please enter the grid lenght value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
         dictationRecognizer.Stop();
         //recognizedWordValue = 0;
@@ -129,7 +127,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         keywordRecognizer.Stop();
         PhraseRecognitionSystem.Shutdown();
-        voice.Speak("Please enter position X value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        voice.Speak("Please enter the position X value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
         dictationRecognizer.Stop();
         //recognizedWordValue = 0;
@@ -141,7 +139,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         keywordRecognizer.Stop();
         PhraseRecognitionSystem.Shutdown();
-        voice.Speak("Please enter position Y value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        voice.Speak("Please enter the position Y value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
         dictationRecognizer.Stop();
         //recognizedWordValue = 0;
@@ -153,7 +151,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         keywordRecognizer.Stop();
         PhraseRecognitionSystem.Shutdown();
-        voice.Speak("Please enter target X value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        voice.Speak("Please enter the target X value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
         dictationRecognizer.Stop();
         //recognizedWordValue = 0;
@@ -165,7 +163,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         keywordRecognizer.Stop();
         PhraseRecognitionSystem.Shutdown();
-        voice.Speak("Please enter target Y value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        voice.Speak("Please enter the target Y value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
         dictationRecognizer.Stop();
         //recognizedWordValue = 0;
@@ -177,7 +175,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         keywordRecognizer.Stop();
         PhraseRecognitionSystem.Shutdown();
-        voice.Speak("Please enter building size value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        voice.Speak("Please enter the building size value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
         dictationRecognizer.Stop();
         //recognizedWordValue = 0;
@@ -189,7 +187,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         keywordRecognizer.Stop();
         PhraseRecognitionSystem.Shutdown();
-        voice.Speak("Please enter obstacle percentage value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        voice.Speak("Please enter the obstacle percentage value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
         dictationRecognizer.Stop();
         //recognizedWordValue = 0;
@@ -221,8 +219,14 @@ public class DictationScript : MonoBehaviour
             try
             {
                 int result = Int32.Parse(text);
+                if(result < 0)
+                {
+                    voice.Speak("Value must be greater than zero", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.GridSizeX = result;
+                voice.Speak("Grid width set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
                 Grid.InitData();
             }
             catch (Exception ex)
@@ -241,8 +245,14 @@ public class DictationScript : MonoBehaviour
             try
             {
                 int result = Int32.Parse(text);
+                if (result < 0)
+                {
+                    voice.Speak("Value must be greater than zero", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.GridSizeY = result;
+                voice.Speak("Grid lenght set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
                 Grid.InitData();
             }
             catch (Exception ex)
@@ -261,8 +271,19 @@ public class DictationScript : MonoBehaviour
             try
             {
                 int result = Int32.Parse(text);
+                if (result < 0)
+                {
+                    voice.Speak("Value must be greater than zero", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
+                if (result >= Grid.GridSizeX)
+                {
+                    voice.Speak("Value must be lesser than the grid width", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.StartPositionX = result;
+                voice.Speak("Starting position X set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
                 Grid.InitData();
             }
             catch (Exception ex)
@@ -281,8 +302,19 @@ public class DictationScript : MonoBehaviour
             try
             {
                 int result = Int32.Parse(text);
+                if (result < 0)
+                {
+                    voice.Speak("Value must be greater than zero", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
+                if (result >= Grid.GridSizeY)
+                {
+                    voice.Speak("Value must be lesser than the grid lenght", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.StartPositionY = result;
+                voice.Speak("Starting position Y set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
                 Grid.InitData();
             }
             catch (Exception ex)
@@ -301,8 +333,19 @@ public class DictationScript : MonoBehaviour
             try
             {
                 int result = Int32.Parse(text);
+                if (result < 0)
+                {
+                    voice.Speak("Value must be greater than zero", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
+                if (result >= Grid.GridSizeX)
+                {
+                    voice.Speak("Value must be lesser than the grid width", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.TargetPositionX = result;
+                voice.Speak("Target X set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
                 Grid.InitData();
             }
             catch (Exception ex)
@@ -321,8 +364,19 @@ public class DictationScript : MonoBehaviour
             try
             {
                 int result = Int32.Parse(text);
+                if (result < 0)
+                {
+                    voice.Speak("Value must be greater than zero", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
+                if (result >= Grid.GridSizeY)
+                {
+                    voice.Speak("Value must be lesser than the grid lenght", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.TargetPositionY = result;
+                voice.Speak("Target Y set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
                 Grid.InitData();
             }
             catch (Exception ex)
@@ -341,8 +395,14 @@ public class DictationScript : MonoBehaviour
             try
             {
                 int result = Int32.Parse(text);
+                if (result < 0)
+                {
+                    voice.Speak("Value must be greater than zero", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.NodeSize = result;
+                voice.Speak("Building size set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
                 Grid.InitData();
             }
             catch (Exception ex)
@@ -361,8 +421,19 @@ public class DictationScript : MonoBehaviour
             try
             {
                 int result = Int32.Parse(text);
+                if (result < 0)
+                {
+                    voice.Speak("Value must be greater than zero", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
+                if (result > 100)
+                {
+                    voice.Speak("Value must be lesser one hundred", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.ObstacleProbability = (float)result / 100;
+                voice.Speak("Obstacle percentage set to " + result.ToString()+" percent", SpeechVoiceSpeakFlags.SVSFlagsAsync);
                 Grid.InitData();
             }
             catch (Exception ex)
