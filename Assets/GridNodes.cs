@@ -61,17 +61,11 @@ public class GridNodes : MonoBehaviour
 
     private void Start()
     {
-        // StartPositionX = Random.Range(0, GridSizeX);
-        // StartPositionY = Random.Range(0, GridSizeY);
+        StartPositionX = Random.Range(0, GridSizeX);
+        StartPositionY = Random.Range(0, GridSizeY);
 
-        // TargetPositionX = StartPositionX;
-        // TargetPositionY = StartPositionY;
-
-        StartPositionX = 0;
-        StartPositionY = 0;
-
-        TargetPositionX = GridSizeX - 1;
-        TargetPositionY = GridSizeY - 1;
+        TargetPositionX = StartPositionX;
+        TargetPositionY = StartPositionY;
 
         InitData();
     }
@@ -146,12 +140,12 @@ public class GridNodes : MonoBehaviour
         }
         PathShowed = false;
         renderPathList();
-        renderStart(StartPositionX, StartPositionY);
-        renderTarget(TargetPositionX, TargetPositionY);
     }
 
     public void renderPathList(){
         if (FinalPath != null){
+            renderStart(StartPositionX, StartPositionY);
+            renderTarget(TargetPositionX, TargetPositionY);
             foreach (Node n in FinalPath)
             {
                 if (n.iGridX != TargetPositionX || n.iGridY != TargetPositionY){

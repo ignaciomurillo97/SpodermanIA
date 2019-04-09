@@ -103,12 +103,18 @@ public class DictationScript : MonoBehaviour
     {
         EditorApplication.Beep();
         UnityEngine.Debug.Log("Play");
-        List<Node> path = algorithm.ExecuteAlgorithm();
-        if (path.Count > 0){
-            spiderman.GetComponent<SpidermanController>().followPath(path);
+        algorithm.ExecuteAlgorithm();
+        if (Grid.FinalPath.Count > 0){
+            spiderman.GetComponent<SpidermanController>().followPath(Grid.FinalPath);
             Grid.InitData();
+            voice.Speak("Executing algorithm", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        }else{
+            if (Grid.StartPositionX== Grid.TargetPositionX && Grid.StartPositionY == Grid.TargetPositionY){
+                voice.Speak("The starting position and target position are the same", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+            }else{
+                voice.Speak("There is no path avaliable", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+            }
         }
-        voice.Speak("Executing algorithm", SpeechVoiceSpeakFlags.SVSFlagsAsync);
     }
 
     private void MatrixX()
@@ -196,7 +202,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         voice.Speak("Diagonals set to on", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         Grid.AllowDiagonals = true;
-        Grid.showPositions();
+        Grid.InitData();
     }
 
     private void DiagonalsOff()
@@ -204,13 +210,11 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         voice.Speak("Diagonals set to off", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         Grid.AllowDiagonals = false;
-        Grid.showPositions();
+        Grid.InitData();
     }
 
     private void Print()
     {
-        UnityEngine.Debug.Log(this.gridX);
-        UnityEngine.Debug.Log(this.gridY);
     }
 
     private void DictationRecognizer_DictationResult(string text, ConfidenceLevel confidence)   //handles recognized text
