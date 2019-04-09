@@ -19,10 +19,7 @@ public class AStar : MonoBehaviour {
     public List<Node> ExecuteAlgorithm()
     {
         List<Node> FinalPathList = FindPath(GridReference.GetStartPosition(), GridReference.GetEndPosition());
-        foreach (Node n in FinalPathList)
-        {
-            Debug.Log("Pos" + n.vPosition);
-        }
+        GridReference.showPositions();
         return FinalPathList;
     }
 

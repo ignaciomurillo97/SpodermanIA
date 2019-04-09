@@ -13,6 +13,8 @@ public class GridNodes : MonoBehaviour
     Vector2 vGridWorldSize;
     float fDistanceBetweenNodes;
     float NodeRadius;
+
+    bool PathShowed;
     
     //Building Assets
     
@@ -135,26 +137,52 @@ public class GridNodes : MonoBehaviour
             }
         }
         createBackgrounds();
+        showPositions();
+    }
+
+    public void showPositions(){
+        // eliminar el arroz
+        PathShowed = false;
+        renderPathList();
+        renderStart(StartPositionX, StartPositionY);
+        renderTarget(TargetPositionX, TargetPositionY);
+    }
+
+    public void renderPathList(){
+        if (FinalPath != null){
+            foreach (Node n in FinalPath)
+            {
+                if (n.iGridX != TargetPositionX || n.iGridY != TargetPositionY){
+                    renderPath(n.iGridX, n.iGridY);
+                }
+            }
+        }
     }
 
     void renderStart(int x, int y){        
-        float yOffset = NodeSize*0.5f;
+        float yOffset = NodeSize*1.2f;
+        int sizeRatio = 80;
         Vector3 pos = new Vector3(NodeArray[x, y].vPosition.x, NodeArray[x, y].vPosition.y+yOffset, NodeArray[x, y].vPosition.z);
-        GameObject pathIndicator = Instantiate(pathStart, pos, Quaternion.identity);                
+        GameObject pathIndicator = Instantiate(pathStart, pos, Quaternion.identity);        
+        pathIndicator.transform.localScale = new Vector3(NodeSize/sizeRatio, NodeSize/sizeRatio, NodeSize/sizeRatio);                                                        
         pathList.Add(pathIndicator);
     }
 
     void renderTarget(int x, int y){        
-        float yOffset = NodeSize*0.5f;
+        float yOffset = NodeSize * 1.2f;
+        int sizeRatio = 80;
         Vector3 pos = new Vector3(NodeArray[x, y].vPosition.x, NodeArray[x, y].vPosition.y+yOffset, NodeArray[x, y].vPosition.z);
         GameObject pathIndicator = Instantiate(pathEnd, pos, Quaternion.identity);                                
+        pathIndicator.transform.localScale = new Vector3(NodeSize/sizeRatio, NodeSize/sizeRatio, NodeSize/sizeRatio);                                                        
         pathList.Add(pathIndicator);
     }
 
     void renderPath(int x, int y){        
-        float yOffset = NodeSize*0.5f;
+        float yOffset = NodeSize*1.2f;
+        int sizeRatio = 80;
         Vector3 pos = new Vector3(NodeArray[x, y].vPosition.x, NodeArray[x, y].vPosition.y+yOffset, NodeArray[x, y].vPosition.z);
         GameObject pathIndicator = Instantiate(pathProgress, pos, Quaternion.identity);                                
+        pathIndicator.transform.localScale = new Vector3(NodeSize/sizeRatio, NodeSize/sizeRatio, NodeSize/sizeRatio);                                                        
         pathList.Add(pathIndicator);
     }
 
@@ -341,7 +369,10 @@ public class GridNodes : MonoBehaviour
     //Function that draws the wireframe
     private void OnDrawGizmos()
     {
-
+        if (!PathShowed){
+            renderPathList();
+            PathShowed = true;
+        }
         Gizmos.DrawWireCube(transform.position, new Vector3(vGridWorldSize.x, 1, vGridWorldSize.y));//Draw a wire cube with the given dimensions from the Unity inspector
 
         if (NodeArray != null)//If the grid is not empty
