@@ -42,12 +42,14 @@ public class DictationScript : MonoBehaviour
     private int buildingSize;
     private float obstacleRatio;
     private bool diagonalsAllowed;
+    private bool VoiceCommandRecognized;
     private String invalidEntry = "Invalid Entry, please try again";
 
     void Awake()
     {
         Grid = GetComponent<GridNodes>();
         algorithm = GetComponent<AStar>();
+        VoiceCommandRecognized = false;
     }
 
     // Use this for initialization
@@ -214,6 +216,8 @@ public class DictationScript : MonoBehaviour
     private void DictationRecognizer_DictationResult(string text, ConfidenceLevel confidence)   //handles recognized text
 
     {
+
+        VoiceCommandRecognized = true;
         if (recognizedWordValue == 1)
         {
             try
@@ -456,14 +460,22 @@ public class DictationScript : MonoBehaviour
 
     private void DictationRecognizer_DictationComplete(DictationCompletionCause cause)  //Handles after-recognition
     {
-        dictationRecognizer.Stop();   
+        dictationRecognizer.Stop();
         PhraseRecognitionSystem.Restart();  //Starts phrase recognition again
+        if (!VoiceCommandRecognized)
+        {
+            voice.Speak("Time out, please try again");
+        }
+        else
+        {
+            VoiceCommandRecognized = false;
+        }
         keywordRecognizer.Start();
     }
 
     private void DictationRecognizer_DictationError(string error, int hresult)
     {
-        
+        VoiceCommandRecognized = false;
     }
 
     void OnDestroy() //Destroyer
