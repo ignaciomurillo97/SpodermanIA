@@ -196,7 +196,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         voice.Speak("Diagonals set to on", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         Grid.AllowDiagonals = true;
-        Grid.InitData();
+        Grid.showPositions();
     }
 
     private void DiagonalsOff()
@@ -204,7 +204,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         voice.Speak("Diagonals set to off", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         Grid.AllowDiagonals = false;
-        Grid.InitData();
+        Grid.showPositions();
     }
 
     private void Print()
@@ -288,7 +288,7 @@ public class DictationScript : MonoBehaviour
                 UnityEngine.Debug.Log(text);
                 Grid.StartPositionX = result;
                 voice.Speak("Starting position X set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
-                Grid.InitData();
+                Grid.showPositions();
             }
             catch (Exception ex)
             {
@@ -319,7 +319,7 @@ public class DictationScript : MonoBehaviour
                 UnityEngine.Debug.Log(text);
                 Grid.StartPositionY = result;
                 voice.Speak("Starting position Y set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
-                Grid.InitData();
+                Grid.showPositions();
             }
             catch (Exception ex)
             {
@@ -350,7 +350,7 @@ public class DictationScript : MonoBehaviour
                 UnityEngine.Debug.Log(text);
                 Grid.TargetPositionX = result;
                 voice.Speak("Target X set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
-                Grid.InitData();
+                Grid.showPositions();
             }
             catch (Exception ex)
             {
@@ -381,7 +381,7 @@ public class DictationScript : MonoBehaviour
                 UnityEngine.Debug.Log(text);
                 Grid.TargetPositionY = result;
                 voice.Speak("Target Y set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
-                Grid.InitData();
+                Grid.showPositions();
             }
             catch (Exception ex)
             {

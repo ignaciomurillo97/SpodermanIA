@@ -129,7 +129,8 @@ public class GridNodes : MonoBehaviour
                     int index = Random.Range(0, buildingList.GetLength(0));
                     GameObject building = Instantiate(buildingList[index], worldPoint, Quaternion.identity);
                     buildingGrid[x][y] = building;
-                    building.transform.localScale = new Vector3(NodeSize/10, NodeSize/10, NodeSize/10);                                                        
+                    building.transform.localScale = new Vector3(NodeSize/10, NodeSize/10, NodeSize/10); 
+                    building.transform.Rotate(0,180,0,Space.Self);
                 }                
             }
         }
