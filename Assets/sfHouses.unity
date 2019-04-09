@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 1630255119}
   - component: {fileID: 1630255118}
   - component: {fileID: 1630255117}
+  - component: {fileID: 1630255121}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -161,6 +162,10 @@ MonoBehaviour:
   building12: {fileID: 100004, guid: 23b96763d79579d45980a0b54c2d1734, type: 3}
   obstacle1: {fileID: 100008, guid: 4f89adb855b4a0749b4de57ecbe62b1a, type: 3}
   AllowDiagonals: 0
+  StartPositionX: 0
+  StartPositionY: 0
+  TargetPositionX: 0
+  TargetPositionY: 0
 --- !u!114 &1630255118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +205,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1630255121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630255116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ee8d5a917a4db478fbdf14e4f6c60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Grid: {fileID: 0}
 --- !u!1 &1892073226
 GameObject:
   m_ObjectHideFlags: 0

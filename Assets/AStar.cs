@@ -11,21 +11,14 @@ public class AStar : MonoBehaviour {
         GridReference = GetComponent<GridNodes>();
     }
 
-    private void Update()
+    public List<Node> ExecuteAlgorithm()
     {
-        //FindPath(StartPosition.position, TargetPosition.position);
-        
         List<Node> FinalPathList = FindPath(GridReference.GetStartPosition(), GridReference.GetEndPosition());
-        foreach (Node n in FinalPathList){
-            Debug.Log("World Position: " + n.vPosition);
-        }
+        return FinalPathList;
     }
 
-    List<Node> FindPath(Vector3 a_StartPos, Vector3 a_TargetPos)
+    List<Node> FindPath(Node StartNode, Node TargetNode)
     {
-        Node StartNode = GridReference.NodeFromWorldPoint(a_StartPos);
-        Node TargetNode = GridReference.NodeFromWorldPoint(a_TargetPos);
-
         List<Node> OpenList = new List<Node>();
         HashSet<Node> ClosedList = new HashSet<Node>();
         List<Node> FinalPathList = new List<Node>();

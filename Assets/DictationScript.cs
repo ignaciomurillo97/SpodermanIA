@@ -17,6 +17,8 @@ using System.IO;
 public class DictationScript : MonoBehaviour
 {
     public GridNodes Grid;
+    public AStar algorithm;
+
     //Keywords codes
     //1 - gridX number
     //2 - gridY number
@@ -45,6 +47,9 @@ public class DictationScript : MonoBehaviour
     void Awake()
     {
         Grid = GetComponent<GridNodes>();
+        algorithm = GetComponent<AStar>();
+
+        algorithm.ExecuteAlgorithm();
     }
 
     // Use this for initialization
@@ -61,6 +66,9 @@ public class DictationScript : MonoBehaviour
         actions.Add("Set Target Y", TargetY);
         actions.Add("Set Building Size", BuildingSize);
         actions.Add("Set Obstacle Percentage", ObstaclePercetage);
+        actions.Add("Set Diagonals On", DiagonalsOn);
+        actions.Add("Set Diagonals Off", DiagonalsOff);
+        actions.Add("Play", Play);
         actions.Add("Print", Print);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray()); ;
@@ -80,6 +88,15 @@ public class DictationScript : MonoBehaviour
     {
         UnityEngine.Debug.Log(speech.text);
         actions[speech.text].Invoke();
+    }
+
+    private void Play()
+    {
+        EditorApplication.Beep();
+        algorithm.ExecuteAlgorithm();
+        Grid.InitData();
+
+
     }
 
     private void MatrixX()
@@ -178,6 +195,18 @@ public class DictationScript : MonoBehaviour
         //recognizedWordValue = 0;
     }
 
+    private void DiagonalsOn()
+    {
+        EditorApplication.Beep();
+        voice.Speak("Diagonals set to on", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+    }
+
+    private void DiagonalsOff()
+    {
+        EditorApplication.Beep();
+        voice.Speak("Diagonals set to off", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+    }
+
     private void Print()
     {
         UnityEngine.Debug.Log(this.gridX);
@@ -233,8 +262,8 @@ public class DictationScript : MonoBehaviour
             {
                 int result = Int32.Parse(text);
                 UnityEngine.Debug.Log(text);
-                //Grid.GridSizeX = result;
-                //Grid.InitData();
+                Grid.StartPositionX = result;
+                Grid.InitData();
             }
             catch (Exception ex)
             {
@@ -253,7 +282,8 @@ public class DictationScript : MonoBehaviour
             {
                 int result = Int32.Parse(text);
                 UnityEngine.Debug.Log(text);
-                //this.positionY = result;
+                Grid.StartPositionY = result;
+                Grid.InitData();
             }
             catch (Exception ex)
             {
@@ -272,7 +302,8 @@ public class DictationScript : MonoBehaviour
             {
                 int result = Int32.Parse(text);
                 UnityEngine.Debug.Log(text);
-                //this.targetX = result;
+                Grid.TargetPositionX = result;
+                Grid.InitData();
             }
             catch (Exception ex)
             {
@@ -291,7 +322,8 @@ public class DictationScript : MonoBehaviour
             {
                 int result = Int32.Parse(text);
                 UnityEngine.Debug.Log(text);
-                //this.targetY = result;
+                Grid.TargetPositionY = result;
+                Grid.InitData();
             }
             catch (Exception ex)
             {

@@ -35,21 +35,31 @@ public class GridNodes : MonoBehaviour
     float obstacle1Scale = 0.006f;
     
     public bool AllowDiagonals;
-    
-    
 
-    
+    public Node StartPosition;
+    public Node TargetPosition;
+
+    public int StartPositionX;
+    public int StartPositionY;
+    public int TargetPositionX;
+    public int TargetPositionY;
 
 
     private void Start()
     {
+        StartPositionY = Random.Range(0, GridSizeY);
+        StartPositionX = Random.Range(0, GridSizeX);
+
+        TargetPositionX = StartPositionY;
+        TargetPositionY = StartPositionX;
+
         InitData();
     }
 
     public void InitData(){        
         NodeRadius = NodeSize / 2;
         fDistanceBetweenNodes = NodeRadius / 2;
-        vGridWorldSize = new Vector2(GridSizeX * NodeSize, GridSizeY * NodeSize);        
+        vGridWorldSize = new Vector2(GridSizeX * NodeSize, GridSizeY * NodeSize);
         CreateGrid();
     }
     void clearBuildingGrid(){
@@ -98,6 +108,16 @@ public class GridNodes : MonoBehaviour
                 }                
             }
         }
+    }
+
+    public Node GetStartPosition()
+    {
+        return NodeArray[StartPositionX, StartPositionY];
+    }
+
+    public Node GetEndPosition()
+    {
+        return NodeArray[TargetPositionX, TargetPositionY];
     }
 
     public bool CheckBorders(int x, int y){
@@ -202,14 +222,6 @@ public class GridNodes : MonoBehaviour
         int iy = Mathf.RoundToInt((GridSizeY - 1) * iyPos);
 
         return NodeArray[ix, iy];
-    }
-
-    public Vector3 GetStartPosition(){
-        return NodeArray[0,0].vPosition;
-    }
-
-    public Vector3 GetEndPosition(){
-        return NodeArray[GridSizeX-1, GridSizeY-1].vPosition;
     }
 
 

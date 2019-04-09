@@ -7,8 +7,8 @@ public class GameController : MonoBehaviour
 
     void Awake(){
         Grid = GetComponent<GridNodes>();
-        Grid.GridSizeX = 10;
-        Grid.GridSizeY = 10;
+        Grid.GridSizeX = 1;
+        Grid.GridSizeY = 1;
         Grid.NodeSize = 2;
         Grid.ObstacleProbability = 0.0f;
         Grid.AllowDiagonals = false;
