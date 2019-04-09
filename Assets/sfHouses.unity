@@ -330,6 +330,10 @@ MonoBehaviour:
   NodeSize: 0
   ObstacleProbability: 0
   backgroundNorth: {fileID: 162790, guid: 97978387d041db2429e6dabd7b1c4f8f, type: 3}
+  pathStart: {fileID: 1223526616464650, guid: 3cb72c55d3136f54a8bb7f49028ac783, type: 3}
+  pathEnd: {fileID: 1223526616464650, guid: 4fda4757539f07b41bc80a20359f507e, type: 3}
+  pathProgress: {fileID: 1223526616464650, guid: 3167f5e7841b27343a685c9071a374b3,
+    type: 3}
   building1: {fileID: 100004, guid: fc535f0458caada46a753743d902aae6, type: 3}
   building2: {fileID: 100004, guid: 5316f1a286cd5ad449af45dfcee58307, type: 3}
   building3: {fileID: 100004, guid: 70753f3c948fe624386e9df0bc9ead84, type: 3}
