@@ -7,15 +7,16 @@ public class GameController : MonoBehaviour
 
     void Awake(){
         Grid = GetComponent<GridNodes>();
-        Grid.GridSizeX = 10;
-        Grid.GridSizeY = 10;
+        Grid.GridSizeX = 5;
+        Grid.GridSizeY = 5;
         Grid.NodeSize = 40;
-        Grid.ObstacleProbability = 0.30f;
+        Grid.ObstacleProbability = 0.20f;
         Grid.AllowDiagonals = false;
     }
 
     void Start (){
-        
+        DictationScript script = GetComponent<DictationScript>();
+        //script.PlayDebug();
     }
 
     void Update(){}

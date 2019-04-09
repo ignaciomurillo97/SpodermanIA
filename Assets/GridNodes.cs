@@ -55,11 +55,17 @@ public class GridNodes : MonoBehaviour
 
     private void Start()
     {
-        StartPositionX = Random.Range(0, GridSizeX);
-        StartPositionY = Random.Range(0, GridSizeY);
+        // StartPositionX = Random.Range(0, GridSizeX);
+        // StartPositionY = Random.Range(0, GridSizeY);
 
-        TargetPositionX = StartPositionX;
-        TargetPositionY = StartPositionY;
+        // TargetPositionX = StartPositionX;
+        // TargetPositionY = StartPositionY;
+
+        StartPositionX = 0;
+        StartPositionY = 0;
+
+        TargetPositionX = GridSizeX - 1;
+        TargetPositionY = GridSizeY - 1;
 
         InitData();
     }

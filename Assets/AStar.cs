@@ -11,10 +11,10 @@ public class AStar : MonoBehaviour {
         GridReference = GetComponent<GridNodes>();
     }
 
-    //private void Update()
-    //{
-    //    FindPath(GridReference.GetStartPosition(), GridReference.GetEndPosition());
-    //}
+    private void Update()
+    {
+       FindPath(GridReference.GetStartPosition(), GridReference.GetEndPosition());
+    }
 
     public List<Node> ExecuteAlgorithm()
     {

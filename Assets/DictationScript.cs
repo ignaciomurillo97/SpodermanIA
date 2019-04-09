@@ -45,6 +45,8 @@ public class DictationScript : MonoBehaviour
     private bool VoiceCommandRecognized;
     private String invalidEntry = "Invalid Entry, please try again";
 
+    public GameObject spiderman;
+
     void Awake()
     {
         Grid = GetComponent<GridNodes>();
@@ -91,12 +93,21 @@ public class DictationScript : MonoBehaviour
         actions[speech.text].Invoke();
     }
 
+    public void PlayDebug(){
+        List<Node> path = algorithm.ExecuteAlgorithm();
+        spiderman.GetComponent<SpidermanController>().followPath(path);
+        Grid.InitData();
+    }
+
     private void Play()
     {
         EditorApplication.Beep();
         UnityEngine.Debug.Log("Play");
-        algorithm.ExecuteAlgorithm();
-        Grid.InitData();
+        List<Node> path = algorithm.ExecuteAlgorithm();
+        if (path.Count > 0){
+            spiderman.GetComponent<SpidermanController>().followPath(path);
+            Grid.InitData();
+        }
         voice.Speak("Executing algorithm", SpeechVoiceSpeakFlags.SVSFlagsAsync);
     }
 
