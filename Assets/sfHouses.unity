@@ -148,6 +148,7 @@ MonoBehaviour:
   GridSizeY: 0
   NodeSize: 0
   ObstacleProbability: 0
+  backgroundNorth: {fileID: 162790, guid: 97978387d041db2429e6dabd7b1c4f8f, type: 3}
   building1: {fileID: 100004, guid: fc535f0458caada46a753743d902aae6, type: 3}
   building2: {fileID: 100004, guid: 5316f1a286cd5ad449af45dfcee58307, type: 3}
   building3: {fileID: 100004, guid: 70753f3c948fe624386e9df0bc9ead84, type: 3}
@@ -160,7 +161,7 @@ MonoBehaviour:
   building10: {fileID: 100004, guid: 59260072d54f6114b8fdb8968f80c023, type: 3}
   building11: {fileID: 100004, guid: b1316b9d4dab3384e8df1d0adb704399, type: 3}
   building12: {fileID: 100004, guid: 23b96763d79579d45980a0b54c2d1734, type: 3}
-  obstacle1: {fileID: 100008, guid: 4f89adb855b4a0749b4de57ecbe62b1a, type: 3}
+  obstacle1: {fileID: 1223526616464650, guid: c590b17884b119046bc6412066500b7d, type: 3}
   AllowDiagonals: 0
   StartPositionX: 0
   StartPositionY: 0
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grid: {fileID: 0}
+  algorithm: {fileID: 0}
 --- !u!1 &1892073226
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,10 +364,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003282559}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 200, y: 150, z: -200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}

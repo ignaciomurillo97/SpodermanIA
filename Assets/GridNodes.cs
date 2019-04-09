@@ -17,6 +17,10 @@ public class GridNodes : MonoBehaviour
     //Building Assets
     
     GameObject[][] buildingGrid; 
+    GameObject[] backgrounds;
+    float distanceToBackground;
+    float  backgroundNorthScale = 0.005f;
+    public GameObject backgroundNorth;
     public GameObject building1;
     public GameObject building2;
     public GameObject building3;
@@ -32,7 +36,7 @@ public class GridNodes : MonoBehaviour
     public GameObject obstacle1;
     float building1Scale = 0.2f;
     
-    float obstacle1Scale = 0.006f;
+    float obstacle1Scale = 0.083f;
     
     public bool AllowDiagonals;
 
@@ -59,6 +63,7 @@ public class GridNodes : MonoBehaviour
     public void InitData(){        
         NodeRadius = NodeSize / 2;
         fDistanceBetweenNodes = NodeRadius / 2;
+        distanceToBackground = fDistanceBetweenNodes*GridSizeX*3.5f ;
         vGridWorldSize = new Vector2(GridSizeX * NodeSize, GridSizeY * NodeSize);
         CreateGrid();
     }
@@ -70,6 +75,13 @@ public class GridNodes : MonoBehaviour
                         Destroy(buildingGrid[i][j]);
                     }            
                 }
+            }            
+        }                
+        if (backgrounds != null){
+            for(int i =0; i<backgrounds.GetLength(0); i++){
+             if (backgrounds[i] != null){
+                 Destroy(backgrounds[i]);
+             }   
             }            
         }        
     }
@@ -91,22 +103,83 @@ public class GridNodes : MonoBehaviour
                 bool Wall = (Random.Range(0.0f, 1.0f) <= ObstacleProbability) ? true : false;
                 NodeArray[x, y] = new Node(Wall, worldPoint, x, y);
                 if (NodeArray[x, y].IsObstacle){
-                    int index = Random.Range(0, obstacleList.GetLength(0)-1);
-                    GameObject building = Instantiate(obstacleList[index], worldPoint, Quaternion.identity);
+                    int index = Random.Range(0, buildingList.GetLength(0));
+                    Vector3 obstaclePos = new Vector3(worldPoint.x, worldPoint.y+(NodeSize*0.5f), worldPoint.z);
+                    GameObject building = Instantiate(obstacleList[0], obstaclePos, Quaternion.identity);
                     buildingGrid[x][y] = building;                    
-                    building.transform.localScale = new Vector3(obstacleScaleList[index], obstacleScaleList[index], obstacleScaleList[index]);
-                    
+                    //building.transform.localScale = new Vector3(NodeSize/10, NodeSize/8, NodeSize/10);
+                    building.transform.Rotate(0,0,0,Space.Self);
+                    //GameObject building = Instantiate(buildingList[index], worldPoint, Quaternion.identity);
+                    //GameObject building = Instantiate(buildingList[index], obstaclePos, Quaternion.identity);
                 }
                 else{
                     int index = Random.Range(0, buildingList.GetLength(0));
                     GameObject building = Instantiate(buildingList[index], worldPoint, Quaternion.identity);
                     buildingGrid[x][y] = building;
-                    building.transform.localScale = new Vector3(buildingScaleList[0], buildingScaleList[0], buildingScaleList[0]);                                                        
+                    building.transform.localScale = new Vector3(NodeSize/10, NodeSize/10, NodeSize/10);                                                        
                     if (x%2 == 0){
                         building.transform.Rotate(0,180,0,Space.Self);
                     }
                 }                
             }
+        }
+        createBackgrounds();
+    }
+
+     void createBackgrounds(){        
+        backgrounds = new GameObject[8];
+        if (NodeArray[0,0] != null){        
+            Vector3 pos1 = new Vector3(NodeArray[0,0].vPosition.x - distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
+            Vector3 pos2 = new Vector3(NodeArray[GridSizeX-1,0].vPosition.x + distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
+            Vector3 pos3 = new Vector3(NodeArray[GridSizeX-1,GridSizeY-1].vPosition.x,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[GridSizeX-1,GridSizeY-1].vPosition.z + distanceToBackground );
+            Vector3 pos4 = new Vector3(NodeArray[0,0].vPosition.x,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z - distanceToBackground );
+            Vector3 pos5 = new Vector3(NodeArray[0,0].vPosition.x - distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
+            Vector3 pos6 = new Vector3(NodeArray[0,0].vPosition.x - distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
+            Vector3 pos7 = new Vector3(NodeArray[GridSizeX-1,0].vPosition.x + distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
+            Vector3 pos8 = new Vector3(NodeArray[GridSizeX-1,0].vPosition.x + distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
+            if(GridSizeY > 0){                
+                float z1 = NodeArray[0,0].vPosition.z;
+                float z2 = NodeArray[0,GridSizeY-1].vPosition.z;
+                float x1 = NodeArray[0,GridSizeY-1].vPosition.x;
+                float x2 = NodeArray[GridSizeX-1,GridSizeY-1].vPosition.x;
+                pos1.z = (z1 + z2)/2  - (vGridWorldSize.y*0.5f) ;
+                pos2.z = (z1 + z2)/2  - (vGridWorldSize.y*0.5f) ;
+                pos5.z = z2  + (vGridWorldSize.y*0.5f) ;
+                pos6.z = z1  - (vGridWorldSize.y*0.5f) ;
+                pos7.z = z1  - (vGridWorldSize.y*0.5f) ;
+                pos8.z = z2  + (vGridWorldSize.y*0.5f) ;
+                pos3.x = (x1 + x2)/2  - (vGridWorldSize.x*0.5f) ;
+                pos4.x = (x1 + x2)/2  - (vGridWorldSize.x*0.5f) ;
+                
+            }
+            
+            GameObject backgroundNorth1 = Instantiate(backgroundNorth, pos1, Quaternion.identity);
+            GameObject backgroundNorth2 = Instantiate(backgroundNorth, pos5, Quaternion.identity);  
+            GameObject backgroundNorth3 = Instantiate(backgroundNorth, pos6, Quaternion.identity);  
+            GameObject backgroundSouth1 = Instantiate(backgroundNorth, pos2, Quaternion.identity);  
+            GameObject backgroundSouth2 = Instantiate(backgroundNorth, pos7, Quaternion.identity);  
+            GameObject backgroundSouth3 = Instantiate(backgroundNorth, pos8, Quaternion.identity);  
+            GameObject backgroundEast1 = Instantiate(backgroundNorth, pos3, Quaternion.identity);  
+            GameObject backgroundWest1 = Instantiate(backgroundNorth, pos4, Quaternion.identity);  
+            float bgScale = backgroundNorthScale*GridSizeY;          
+            backgroundNorth1.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
+            backgroundNorth2.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
+            backgroundNorth3.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
+            backgroundSouth1.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
+            backgroundSouth2.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
+            backgroundSouth3.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
+            backgroundEast1.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
+            backgroundWest1.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
+            backgroundEast1.transform.Rotate(0,90,0,Space.Self);
+            backgroundWest1.transform.Rotate(0,90,0,Space.Self);
+            backgrounds[0] = backgroundNorth1;
+            backgrounds[1] = backgroundSouth1;
+            backgrounds[2] = backgroundEast1;
+            backgrounds[3] = backgroundWest1;
+            backgrounds[4] = backgroundNorth2;
+            backgrounds[5] = backgroundNorth3;
+            backgrounds[5] = backgroundSouth2;
+            backgrounds[5] = backgroundSouth3;
         }
     }
 
