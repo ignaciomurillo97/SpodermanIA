@@ -56,6 +56,7 @@ public class DictationScript : MonoBehaviour
     void Start()
     {
         voice = new SpVoice();
+        voice.Voice = voice.GetVoices().Item(1);
         voice.Volume = 100; // Volume (no xml)
         voice.Rate = 0;  // Rate (no xml)
         actions.Add("Set Grid Width", MatrixX);
@@ -107,8 +108,6 @@ public class DictationScript : MonoBehaviour
         PhraseRecognitionSystem.Shutdown();
         voice.Speak("Please enter the grid width value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
-        dictationRecognizer.Stop();
-        //recognizedWordValue = 0;
     }
 
     private void MatrixY()
@@ -119,8 +118,6 @@ public class DictationScript : MonoBehaviour
         PhraseRecognitionSystem.Shutdown();
         voice.Speak("Please enter the grid lenght value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
-        dictationRecognizer.Stop();
-        //recognizedWordValue = 0;
     }
 
     private void PositionX()
@@ -131,8 +128,6 @@ public class DictationScript : MonoBehaviour
         PhraseRecognitionSystem.Shutdown();
         voice.Speak("Please enter the position X value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
-        dictationRecognizer.Stop();
-        //recognizedWordValue = 0;
     }
 
     private void PositionY()
@@ -143,8 +138,6 @@ public class DictationScript : MonoBehaviour
         PhraseRecognitionSystem.Shutdown();
         voice.Speak("Please enter the position Y value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
-        dictationRecognizer.Stop();
-        //recognizedWordValue = 0;
     }
 
     private void TargetX()
@@ -155,8 +148,6 @@ public class DictationScript : MonoBehaviour
         PhraseRecognitionSystem.Shutdown();
         voice.Speak("Please enter the target X value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
-        dictationRecognizer.Stop();
-        //recognizedWordValue = 0;
     }
 
     private void TargetY()
@@ -167,8 +158,6 @@ public class DictationScript : MonoBehaviour
         PhraseRecognitionSystem.Shutdown();
         voice.Speak("Please enter the target Y value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
-        dictationRecognizer.Stop();
-        //recognizedWordValue = 0;
     }
 
     private void BuildingSize()
@@ -179,8 +168,6 @@ public class DictationScript : MonoBehaviour
         PhraseRecognitionSystem.Shutdown();
         voice.Speak("Please enter the building size value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
-        dictationRecognizer.Stop();
-        //recognizedWordValue = 0;
     }
 
     private void ObstaclePercetage()
@@ -191,20 +178,22 @@ public class DictationScript : MonoBehaviour
         PhraseRecognitionSystem.Shutdown();
         voice.Speak("Please enter the obstacle percentage value", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         dictationRecognizer.Start();
-        dictationRecognizer.Stop();
-        //recognizedWordValue = 0;
     }
 
     private void DiagonalsOn()
     {
         EditorApplication.Beep();
         voice.Speak("Diagonals set to on", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        Grid.AllowDiagonals = true;
+        Grid.InitData();
     }
 
     private void DiagonalsOff()
     {
         EditorApplication.Beep();
         voice.Speak("Diagonals set to off", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        Grid.AllowDiagonals = false;
+        Grid.InitData();
     }
 
     private void Print()
@@ -460,23 +449,21 @@ public class DictationScript : MonoBehaviour
 
     private void DictationRecognizer_DictationComplete(DictationCompletionCause cause)  //Handles after-recognition
     {
-        dictationRecognizer.Stop();
-        PhraseRecognitionSystem.Restart();  //Starts phrase recognition again
         if (!VoiceCommandRecognized)
         {
             voice.Speak("Time out, please try again");
         }
-        else
+        dictationRecognizer.Stop();
+        PhraseRecognitionSystem.Restart();  //Starts phrase recognition again
+        keywordRecognizer.Start();
+        
+        if (VoiceCommandRecognized)
         {
             VoiceCommandRecognized = false;
         }
-        keywordRecognizer.Start();
     }
 
-    private void DictationRecognizer_DictationError(string error, int hresult)
-    {
-        VoiceCommandRecognized = false;
-    }
+    private void DictationRecognizer_DictationError(string error, int hresult){ }
 
     void OnDestroy() //Destroyer
     {
