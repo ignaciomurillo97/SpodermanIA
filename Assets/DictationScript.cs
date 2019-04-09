@@ -103,12 +103,13 @@ public class DictationScript : MonoBehaviour
     {
         EditorApplication.Beep();
         UnityEngine.Debug.Log("Play");
-        List<Node> path = algorithm.ExecuteAlgorithm();
-        if (path.Count > 0){
-            spiderman.GetComponent<SpidermanController>().followPath(path);
-            Grid.InitData();
+        algorithm.ExecuteAlgorithm();
+        if (Grid.FinalPath.Count > 0){
+            spiderman.GetComponent<SpidermanController>().followPath(Grid.FinalPath);
+            voice.Speak("Executing algorithm", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        }else{
+            voice.Speak("There ir not a valid solution");        
         }
-        voice.Speak("Executing algorithm", SpeechVoiceSpeakFlags.SVSFlagsAsync);
     }
 
     private void MatrixX()
@@ -285,10 +286,14 @@ public class DictationScript : MonoBehaviour
                     voice.Speak("Value must be lesser than the grid width", SpeechVoiceSpeakFlags.SVSFlagsAsync);
                     throw new System.ArgumentException();
                 }
+                if (Grid.CheckPosition(result, Grid.StartPositionY))
+                {
+                    voice.Speak("The Starting position is an obstacle", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.StartPositionX = result;
                 voice.Speak("Starting position X set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
-                Grid.InitData();
             }
             catch (Exception ex)
             {
@@ -316,10 +321,14 @@ public class DictationScript : MonoBehaviour
                     voice.Speak("Value must be lesser than the grid lenght", SpeechVoiceSpeakFlags.SVSFlagsAsync);
                     throw new System.ArgumentException();
                 }
+                if (Grid.CheckPosition(Grid.StartPositionX, result))
+                {
+                    voice.Speak("The Starting position is an obstacle", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.StartPositionY = result;
                 voice.Speak("Starting position Y set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
-                Grid.InitData();
             }
             catch (Exception ex)
             {
@@ -347,10 +356,14 @@ public class DictationScript : MonoBehaviour
                     voice.Speak("Value must be lesser than the grid width", SpeechVoiceSpeakFlags.SVSFlagsAsync);
                     throw new System.ArgumentException();
                 }
+                if (Grid.CheckPosition(result, Grid.TargetPositionY))
+                {
+                    voice.Speak("The Starting position is an obstacle", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.TargetPositionX = result;
                 voice.Speak("Target X set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
-                Grid.InitData();
             }
             catch (Exception ex)
             {
@@ -378,10 +391,14 @@ public class DictationScript : MonoBehaviour
                     voice.Speak("Value must be lesser than the grid lenght", SpeechVoiceSpeakFlags.SVSFlagsAsync);
                     throw new System.ArgumentException();
                 }
+                if (Grid.CheckPosition(Grid.TargetPositionX, result))
+                {
+                    voice.Speak("The Starting position is an obstacle", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.TargetPositionY = result;
                 voice.Speak("Target Y set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
-                Grid.InitData();
             }
             catch (Exception ex)
             {

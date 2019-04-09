@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpidermanController : MonoBehaviour
 {
     private Animator animator;
+    public GridNodes Grid;
 
     //private List<Node> path;
 
@@ -30,6 +31,8 @@ public class SpidermanController : MonoBehaviour
     void Update()
     {
         prevPosition = transform.position;
+        jumpHeight = Grid.NodeSize/4;
+        runDistance = Grid.NodeSize/8;
 
         if (!tm.done)
         {
@@ -94,29 +97,31 @@ public class SpidermanController : MonoBehaviour
         startTrajectory(Path, t);
         for (int i = 1; i < Path.Count - 1; i ++)
         {
-            Vector3 a = getRoofEdge(Path[i].vPosition, Path[i - 1].vPosition) + Vector3.up * 40;
-            Vector3 b = Path[i].vPosition+ Vector3.up * 40;
-            Vector3 c = getRoofEdge(Path[i].vPosition, Path[i + 1].vPosition) + Vector3.up * 40;
-            Vector3 e = getRoofEdge(Path[i + 1].vPosition, Path[i].vPosition)+ Vector3.up * 40;
-            Vector3 d = jumpApex(c, e) + Vector3.up * 40;
+            float sizeRation = Grid.NodeSize;
+            Vector3 a = getRoofEdge(Path[i].vPosition, Path[i - 1].vPosition) + Vector3.up * sizeRation;
+            Vector3 b = Path[i].vPosition+ Vector3.up * sizeRation;
+            Vector3 c = getRoofEdge(Path[i].vPosition, Path[i + 1].vPosition) + Vector3.up * sizeRation;
+            Vector3 e = getRoofEdge(Path[i + 1].vPosition, Path[i].vPosition)+ Vector3.up * sizeRation;
+            Vector3 d = jumpApex(c, e) + Vector3.up * sizeRation;
 
             t.Add(new BezierTrajectory(a, b, c, 50, "run"));
-            t.Add(new idleTrajectory(c, 2, "jump"));
+            t.Add(new idleTrajectory(c, 8, "jump"));
             t.Add(new BezierTrajectory(c, d, e, 50, "fall"));
-            t.Add(new idleTrajectory(e, 2, "land"));
+            t.Add(new idleTrajectory(e, 8, "land"));
         }
         return t;
     }
 
     private void startTrajectory(List<Node> path, List<Trajectory> t)
     {
-        Vector3 a = path[0].vPosition + Vector3.up * 40;
-        Vector3 b = getRoofEdge(path[0].vPosition, path[1].vPosition) + Vector3.up * 40;
-        Vector3 c = getRoofEdge(path[1].vPosition, path[0].vPosition) + Vector3.up * 40;
+        float sizeRation = Grid.NodeSize;
+        Vector3 a = path[0].vPosition + Vector3.up * sizeRation;
+        Vector3 b = getRoofEdge(path[0].vPosition, path[1].vPosition) + Vector3.up * sizeRation;
+        Vector3 c = getRoofEdge(path[1].vPosition, path[0].vPosition) + Vector3.up * sizeRation;
         t.Add(new BezierTrajectory(a, (a + b) / 2, b, 50, "run"));
-        t.Add(new idleTrajectory(b, 10, "jump"));
+        t.Add(new idleTrajectory(b, 8, "jump"));
         t.Add(new BezierTrajectory(b, jumpApex(b, c), c, 50, "fall"));
-        t.Add(new idleTrajectory(c, 10, "land"));
+        t.Add(new idleTrajectory(c, 8, "land"));
     }
 
     private Vector3 getRoofEdge(Vector3 start, Vector3 end)

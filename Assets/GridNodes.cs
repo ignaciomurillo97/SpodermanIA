@@ -304,6 +304,11 @@ public class GridNodes : MonoBehaviour
         return NodeArray[ix, iy];
     }
 
+    public bool CheckPosition(int posX, int posY){
+    	Node currNode = NodeArray[posX, posY];
+    	return currNode.IsObstacle;
+    }
+
 
     //Function that draws the wireframe
     private void OnDrawGizmos()
