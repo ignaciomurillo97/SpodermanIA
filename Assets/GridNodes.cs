@@ -18,10 +18,14 @@ public class GridNodes : MonoBehaviour
     
     GameObject[][] buildingGrid; 
     GameObject[] backgrounds;
+    List<GameObject> pathList = new List<GameObject>();
     GameObject[] obstacleList;
     float distanceToBackground;
     float  backgroundNorthScale = 0.005f;
     public GameObject backgroundNorth;
+    public GameObject pathStart;
+    public GameObject pathEnd;
+    public GameObject pathProgress;
     public GameObject building1;
     public GameObject building2;
     public GameObject building3;
@@ -73,7 +77,7 @@ public class GridNodes : MonoBehaviour
     public void InitData(){        
         NodeRadius = NodeSize / 2;
         fDistanceBetweenNodes = NodeRadius / 2;
-        distanceToBackground = fDistanceBetweenNodes*GridSizeX*3.5f ;
+        distanceToBackground = fDistanceBetweenNodes*3.5f ;
         vGridWorldSize = new Vector2(GridSizeX * NodeSize, GridSizeY * NodeSize);
         CreateGrid();
     }
@@ -133,17 +137,39 @@ public class GridNodes : MonoBehaviour
         createBackgrounds();
     }
 
+    void renderStart(int x, int y){        
+        float yOffset = NodeSize*0.5f;
+        Vector3 pos = new Vector3(NodeArray[x, y].vPosition.x, NodeArray[x, y].vPosition.y+yOffset, NodeArray[x, y].vPosition.x.z);
+        GameObject pathIndicator = Instantiate(pathStart, pos, Quaternion.identity);                
+        pathList.Add(pathIndicator);
+    }
+
+    void renderTarget(int x, int y){        
+        float yOffset = NodeSize*0.5f;
+        Vector3 pos = new Vector3(NodeArray[x, y].vPosition.x, NodeArray[x, y].vPosition.y+yOffset, NodeArray[x, y].vPosition.x.z);
+        GameObject pathIndicator = Instantiate(pathEnd, pos, Quaternion.identity);                                
+        pathList.Add(pathIndicator);
+    }
+
+    void renderPath(int x, int y){        
+        float yOffset = NodeSize*0.5f;
+        Vector3 pos = new Vector3(NodeArray[x, y].vPosition.x, NodeArray[x, y].vPosition.y+yOffset, NodeArray[x, y].vPosition.x.z);
+        GameObject pathIndicator = Instantiate(pathProgress, pos, Quaternion.identity);                                
+        pathList.Add(pathIndicator);
+    }
+
      void createBackgrounds(){        
         backgrounds = new GameObject[8];
         if (NodeArray[0,0] != null){        
+            distanceToBackground *= (GridSizeX+GridSizeY/2)*22;
             Vector3 pos1 = new Vector3(NodeArray[0,0].vPosition.x - distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
-            Vector3 pos2 = new Vector3(NodeArray[GridSizeX-1,0].vPosition.x + distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
-            Vector3 pos3 = new Vector3(NodeArray[GridSizeX-1,GridSizeY-1].vPosition.x,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[GridSizeX-1,GridSizeY-1].vPosition.z + distanceToBackground );
-            Vector3 pos4 = new Vector3(NodeArray[0,0].vPosition.x,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z - distanceToBackground );
+            Vector3 pos2 = new Vector3(NodeArray[GridSizeX-1,0].vPosition.x + distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );            
             Vector3 pos5 = new Vector3(NodeArray[0,0].vPosition.x - distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
             Vector3 pos6 = new Vector3(NodeArray[0,0].vPosition.x - distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
             Vector3 pos7 = new Vector3(NodeArray[GridSizeX-1,0].vPosition.x + distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
-            Vector3 pos8 = new Vector3(NodeArray[GridSizeX-1,0].vPosition.x + distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );
+            Vector3 pos8 = new Vector3(NodeArray[GridSizeX-1,0].vPosition.x + distanceToBackground,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z );            
+            Vector3 pos3 = new Vector3(NodeArray[GridSizeX-1,GridSizeY-1].vPosition.x,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[GridSizeX-1,GridSizeY-1].vPosition.z + distanceToBackground );
+            Vector3 pos4 = new Vector3(NodeArray[0,0].vPosition.x,NodeArray[0,0].vPosition.y+(vGridWorldSize.x*0.0420f), NodeArray[0,0].vPosition.z - distanceToBackground );
             if(GridSizeY > 0){                
                 float z1 = NodeArray[0,0].vPosition.z;
                 float z2 = NodeArray[0,GridSizeY-1].vPosition.z;
@@ -168,13 +194,15 @@ public class GridNodes : MonoBehaviour
             GameObject backgroundSouth3 = Instantiate(backgroundNorth, pos8, Quaternion.identity);  
             GameObject backgroundEast1 = Instantiate(backgroundNorth, pos3, Quaternion.identity);  
             GameObject backgroundWest1 = Instantiate(backgroundNorth, pos4, Quaternion.identity);  
-            float bgScale = backgroundNorthScale*GridSizeY;          
+            float bgScale = backgroundNorthScale*(GridSizeX+GridSizeY/2)*16;           
+            //float bgScale = backgroundNorthScale*GridSizeX;            
             backgroundNorth1.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
             backgroundNorth2.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
             backgroundNorth3.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
             backgroundSouth1.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
             backgroundSouth2.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
             backgroundSouth3.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
+            //bgScale = backgroundNorthScale*GridSizeY;          
             backgroundEast1.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
             backgroundWest1.transform.localScale = new Vector3(NodeSize*bgScale,NodeSize*bgScale,NodeSize*bgScale);
             backgroundEast1.transform.Rotate(0,90,0,Space.Self);
