@@ -130,9 +130,6 @@ public class GridNodes : MonoBehaviour
                     GameObject building = Instantiate(buildingList[index], worldPoint, Quaternion.identity);
                     buildingGrid[x][y] = building;
                     building.transform.localScale = new Vector3(NodeSize/10, NodeSize/10, NodeSize/10);                                                        
-                    if (x%2 == 0){
-                        building.transform.Rotate(0,180,0,Space.Self);
-                    }
                 }                
             }
         }
@@ -141,7 +138,11 @@ public class GridNodes : MonoBehaviour
     }
 
     public void showPositions(){
-        // eliminar el arroz
+        if (pathList != null){
+            for (int i = 0; i < pathList.Count; i++){
+                Destroy(pathList[i]);            
+            }
+        }
         PathShowed = false;
         renderPathList();
         renderStart(StartPositionX, StartPositionY);
@@ -370,7 +371,7 @@ public class GridNodes : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (!PathShowed){
-            renderPathList();
+            showPositions();
             PathShowed = true;
         }
         Gizmos.DrawWireCube(transform.position, new Vector3(vGridWorldSize.x, 1, vGridWorldSize.y));//Draw a wire cube with the given dimensions from the Unity inspector
