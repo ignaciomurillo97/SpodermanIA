@@ -18,6 +18,7 @@ public class GridNodes : MonoBehaviour
     
     GameObject[][] buildingGrid; 
     GameObject[] backgrounds;
+    GameObject[] obstacleList;
     float distanceToBackground;
     float  backgroundNorthScale = 0.005f;
     public GameObject backgroundNorth;
@@ -34,6 +35,9 @@ public class GridNodes : MonoBehaviour
     public GameObject building11;
     public GameObject building12;
     public GameObject obstacle1;
+    public GameObject obstacle2;
+    public GameObject obstacle3;
+    public GameObject obstacle4;
     float building1Scale = 0.2f;
     
     float obstacle1Scale = 0.083f;
@@ -90,7 +94,7 @@ public class GridNodes : MonoBehaviour
     {        
         clearBuildingGrid(); 
         GameObject[] buildingList = {building1, building2, building3, building4, building5, building6, building7, building8, building9, building10, building11, building12};
-        GameObject[] obstacleList = {obstacle1};
+        GameObject[] obstacleList = {obstacle1,obstacle2, obstacle3,obstacle4};
         float[] buildingScaleList = {building1Scale};
         float[] obstacleScaleList = {obstacle1Scale};
         buildingGrid = new GameObject[(int)GridSizeX][];
@@ -103,14 +107,11 @@ public class GridNodes : MonoBehaviour
                 bool Wall = (Random.Range(0.0f, 1.0f) <= ObstacleProbability) ? true : false;
                 NodeArray[x, y] = new Node(Wall, worldPoint, x, y);
                 if (NodeArray[x, y].IsObstacle){
-                    int index = Random.Range(0, buildingList.GetLength(0));
+                    int index = Random.Range(0, obstacleList.GetLength(0));
                     Vector3 obstaclePos = new Vector3(worldPoint.x, worldPoint.y+(NodeSize*0.5f), worldPoint.z);
-                    GameObject building = Instantiate(obstacleList[0], obstaclePos, Quaternion.identity);
-                    buildingGrid[x][y] = building;                    
-                    //building.transform.localScale = new Vector3(NodeSize/10, NodeSize/8, NodeSize/10);
-                    building.transform.Rotate(0,0,0,Space.Self);
-                    //GameObject building = Instantiate(buildingList[index], worldPoint, Quaternion.identity);
-                    //GameObject building = Instantiate(buildingList[index], obstaclePos, Quaternion.identity);
+                    GameObject obstacle = Instantiate(obstacleList[index], obstaclePos, Quaternion.identity);
+                    buildingGrid[x][y] = obstacle;                                        
+                    obstacle.transform.Rotate(0,0,0,Space.Self);                    
                 }
                 else{
                     int index = Random.Range(0, buildingList.GetLength(0));

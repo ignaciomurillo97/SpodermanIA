@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
         Grid.GridSizeX = 10;
         Grid.GridSizeY = 10;
         Grid.NodeSize = 40;
-        Grid.ObstacleProbability = 0.50f;
+        Grid.ObstacleProbability = 0.30f;
         Grid.AllowDiagonals = false;
     }
 
