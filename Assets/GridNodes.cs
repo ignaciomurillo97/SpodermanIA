@@ -238,7 +238,7 @@ public class GridNodes : MonoBehaviour
                     if (FinalPath.Contains(n))//If the current node is in the final path
                     {
                         Gizmos.color = Color.red;//Set the color of that node
-                        //pGizmos.DrawCube(n.vPosition, Vector3.one * (NodeSize - fDistanceBetweenNodes));//Draw the node at the position of the node.
+                        Gizmos.DrawCube(n.vPosition, Vector3.one * (NodeSize - fDistanceBetweenNodes));//Draw the node at the position of the node.
                     }
 
                 }

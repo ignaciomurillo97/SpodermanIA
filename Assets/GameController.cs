@@ -7,10 +7,10 @@ public class GameController : MonoBehaviour
 
     void Awake(){
         Grid = GetComponent<GridNodes>();
-        Grid.GridSizeX = 1;
-        Grid.GridSizeY = 1;
+        Grid.GridSizeX = 10;
+        Grid.GridSizeY = 10;
         Grid.NodeSize = 2;
-        Grid.ObstacleProbability = 0.1f;
+        Grid.ObstacleProbability = 0.0f;
         Grid.AllowDiagonals = false;
     }
 
@@ -18,13 +18,7 @@ public class GameController : MonoBehaviour
         
     }
 
-    void Update(){
-        if (Random.Range(0.0f, 1.0f) <= 0.1){
-            Grid.GridSizeX += 1;
-            Grid.GridSizeY += 1;
-            Grid.InitData();
-        }
-    }
+    void Update(){}
 
     public GridNodes GetGrid(){
         return Grid;
