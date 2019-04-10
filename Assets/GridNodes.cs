@@ -18,6 +18,8 @@ public class GridNodes : MonoBehaviour
     
     //Building Assets
     
+    public Transform spiderman;
+
     GameObject[][] buildingGrid; 
     GameObject[] backgrounds;
     List<GameObject> pathList = new List<GameObject>();
@@ -70,11 +72,19 @@ public class GridNodes : MonoBehaviour
         InitData();
     }
 
+    public void Update() {
+        if (!PathShowed){
+            showPositions();
+            PathShowed = true;
+        }
+    }
+
     public void InitData(){        
         NodeRadius = NodeSize / 2;
         fDistanceBetweenNodes = NodeRadius / 2;
         distanceToBackground = fDistanceBetweenNodes*3.5f ;
         vGridWorldSize = new Vector2(GridSizeX * NodeSize, GridSizeY * NodeSize);
+        FinalPath = new List<Node>();
         CreateGrid();
     }
     void clearBuildingGrid(){
@@ -110,7 +120,15 @@ public class GridNodes : MonoBehaviour
             buildingGrid[x] = new GameObject[(int)GridSizeY];
             for (int y = 0; y < GridSizeY; y++){
                 Vector3 worldPoint = bottomLeft + Vector3.right * (x * NodeSize + NodeRadius) + Vector3.forward * (y * NodeSize + NodeRadius);
-                bool Wall = (Random.Range(0.0f, 1.0f) <= ObstacleProbability) ? true : false;
+                bool Wall = false;
+                
+                if (Random.Range(0.0f, 1.0f) <= ObstacleProbability && 
+                    !((x == StartPositionX && y == StartPositionY) || 
+                    (x == TargetPositionX && y == TargetPositionY))
+                    ) {
+                    Wall = true;
+                }
+
                 NodeArray[x, y] = new Node(Wall, worldPoint, x, y);
                 if (NodeArray[x, y].IsObstacle){
                     int index = Random.Range(0, obstacleList.GetLength(0));
@@ -128,18 +146,29 @@ public class GridNodes : MonoBehaviour
                 }                
             }
         }
+        
         createBackgrounds();
         showPositions();
     }
 
+    public bool NodeIsObstacle(int x, int y){
+        return NodeArray[x,y].IsObstacle;
+    }
+
     public void showPositions(){
+        spiderman.position = NodeArray [StartPositionX, StartPositionY].vPosition;
+        spiderman.position += Vector3.up * NodeSize;
+        clearPath();
+        renderPathList();
+        PathShowed = false;
+    }
+
+    public void clearPath(){
         if (pathList != null){
             for (int i = 0; i < pathList.Count; i++){
                 Destroy(pathList[i]);            
             }
         }
-        PathShowed = false;
-        renderPathList();
     }
 
     public void renderPathList(){
@@ -365,10 +394,7 @@ public class GridNodes : MonoBehaviour
     //Function that draws the wireframe
     private void OnDrawGizmos()
     {
-        if (!PathShowed){
-            showPositions();
-            PathShowed = true;
-        }
+        
         Gizmos.DrawWireCube(transform.position, new Vector3(vGridWorldSize.x, 1, vGridWorldSize.y));//Draw a wire cube with the given dimensions from the Unity inspector
 
         if (NodeArray != null)//If the grid is not empty

@@ -105,9 +105,9 @@ public class SpidermanController : MonoBehaviour
             Vector3 d = jumpApex(c, e) + Vector3.up * sizeRation;
 
             t.Add(new BezierTrajectory(a, b, c, 50, "run"));
-            t.Add(new idleTrajectory(c, 8, "jump"));
-            t.Add(new BezierTrajectory(c, d, e, 50, "fall"));
-            t.Add(new idleTrajectory(e, 8, "land"));
+            t.Add(new idleTrajectory(c, 4, "jump"));
+            t.Add(new BezierTrajectory(c, d, e, 70, "fall"));
+            t.Add(new idleTrajectory(e, 4, "land"));
         }
         return t;
     }
@@ -119,9 +119,9 @@ public class SpidermanController : MonoBehaviour
         Vector3 b = getRoofEdge(path[0].vPosition, path[1].vPosition) + Vector3.up * sizeRation;
         Vector3 c = getRoofEdge(path[1].vPosition, path[0].vPosition) + Vector3.up * sizeRation;
         t.Add(new BezierTrajectory(a, (a + b) / 2, b, 50, "run"));
-        t.Add(new idleTrajectory(b, 8, "jump"));
-        t.Add(new BezierTrajectory(b, jumpApex(b, c), c, 50, "fall"));
-        t.Add(new idleTrajectory(c, 8, "land"));
+        t.Add(new idleTrajectory(b, 4, "jump"));
+        t.Add(new BezierTrajectory(b, jumpApex(b, c), c, 70, "fall"));
+        t.Add(new idleTrajectory(c, 4, "land"));
     }
 
     private Vector3 getRoofEdge(Vector3 start, Vector3 end)

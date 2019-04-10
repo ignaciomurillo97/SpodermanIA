@@ -71,6 +71,8 @@ public class DictationScript : MonoBehaviour
         actions.Add("Set Obstacle Percentage", ObstaclePercetage);
         actions.Add("Set Diagonals On", DiagonalsOn);
         actions.Add("Set Diagonals Off", DiagonalsOff);
+        actions.Add("Set Web On", WebOn);
+        actions.Add("Set Web Off", WebOff);
         actions.Add("Play", Play);
         actions.Add("Print", Print);
 
@@ -93,12 +95,6 @@ public class DictationScript : MonoBehaviour
         actions[speech.text].Invoke();
     }
 
-    public void PlayDebug(){
-        List<Node> path = algorithm.ExecuteAlgorithm();
-        spiderman.GetComponent<SpidermanController>().followPath(path);
-        Grid.InitData();
-    }
-
     private void Play()
     {
         EditorApplication.Beep();
@@ -106,13 +102,12 @@ public class DictationScript : MonoBehaviour
         algorithm.ExecuteAlgorithm();
         if (Grid.FinalPath.Count > 0){
             spiderman.GetComponent<SpidermanController>().followPath(Grid.FinalPath);
-            Grid.InitData();
             voice.Speak("Executing algorithm", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         }else{
             if (Grid.StartPositionX== Grid.TargetPositionX && Grid.StartPositionY == Grid.TargetPositionY){
                 voice.Speak("The starting position and target position are the same", SpeechVoiceSpeakFlags.SVSFlagsAsync);
             }else{
-                voice.Speak("There is no path avaliable", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                voice.Speak("There is no path available", SpeechVoiceSpeakFlags.SVSFlagsAsync);
             }
         }
     }
@@ -202,6 +197,7 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         voice.Speak("Diagonals set to on", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         Grid.AllowDiagonals = true;
+        algorithm.ExecuteAlgorithm();
         Grid.InitData();
     }
 
@@ -210,7 +206,22 @@ public class DictationScript : MonoBehaviour
         EditorApplication.Beep();
         voice.Speak("Diagonals set to off", SpeechVoiceSpeakFlags.SVSFlagsAsync);
         Grid.AllowDiagonals = false;
+        algorithm.ExecuteAlgorithm();
         Grid.InitData();
+    }
+
+    private void WebOn()
+    {
+        EditorApplication.Beep();
+        voice.Speak("Web set to on", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        Grid.showPositions();
+    }
+
+    private void WebOff()
+    {
+        EditorApplication.Beep();
+        voice.Speak("Web set to off", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+        Grid.clearPath();
     }
 
     private void Print()
@@ -289,9 +300,14 @@ public class DictationScript : MonoBehaviour
                     voice.Speak("Value must be lesser than the grid width", SpeechVoiceSpeakFlags.SVSFlagsAsync);
                     throw new System.ArgumentException();
                 }
+                if (Grid.NodeIsObstacle(result, Grid.StartPositionY)){
+                    voice.Speak("The starting position is an obstacle", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.StartPositionX = result;
                 voice.Speak("Starting position X set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                algorithm.ExecuteAlgorithm();
                 Grid.showPositions();
             }
             catch (Exception ex)
@@ -320,9 +336,15 @@ public class DictationScript : MonoBehaviour
                     voice.Speak("Value must be lesser than the grid lenght", SpeechVoiceSpeakFlags.SVSFlagsAsync);
                     throw new System.ArgumentException();
                 }
+                
+                if (Grid.NodeIsObstacle(Grid.StartPositionX, result)){
+                    voice.Speak("The starting position is an obstacle", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.StartPositionY = result;
                 voice.Speak("Starting position Y set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                algorithm.ExecuteAlgorithm();
                 Grid.showPositions();
             }
             catch (Exception ex)
@@ -351,9 +373,14 @@ public class DictationScript : MonoBehaviour
                     voice.Speak("Value must be lesser than the grid width", SpeechVoiceSpeakFlags.SVSFlagsAsync);
                     throw new System.ArgumentException();
                 }
+                if (Grid.NodeIsObstacle(result, Grid.TargetPositionY)){
+                    voice.Speak("The target position is an obstacle", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.TargetPositionX = result;
                 voice.Speak("Target X set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                algorithm.ExecuteAlgorithm();
                 Grid.showPositions();
             }
             catch (Exception ex)
@@ -382,9 +409,15 @@ public class DictationScript : MonoBehaviour
                     voice.Speak("Value must be lesser than the grid lenght", SpeechVoiceSpeakFlags.SVSFlagsAsync);
                     throw new System.ArgumentException();
                 }
+                
+                if (Grid.NodeIsObstacle(Grid.TargetPositionX, result)){
+                    voice.Speak("The target position is an obstacle", SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    throw new System.ArgumentException();
+                }
                 UnityEngine.Debug.Log(text);
                 Grid.TargetPositionY = result;
                 voice.Speak("Target Y set to " + result.ToString(), SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                algorithm.ExecuteAlgorithm();
                 Grid.showPositions();
             }
             catch (Exception ex)
